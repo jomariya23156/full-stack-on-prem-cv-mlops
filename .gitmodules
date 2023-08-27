@@ -1,0 +1,3 @@
+[submodule "datasets/animals10-dvc"]
+	path = datasets/animals10-dvc
+	url = https://github.com/jomariya23156/animals10-dvc

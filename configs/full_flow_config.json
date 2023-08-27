@@ -1,0 +1,43 @@
+{
+    "flow_module": "flows.full_flow",
+
+    "model": {
+        "model_name": "animals10_classifier",
+        "input_size": {"w": 50, "h": 50},
+        "classes": ["butterfly", "cat", "chicken", "cow", "dog", 
+            "elephant", "horse", "sheep", "spider", "squirrel"],
+        "classifier_activation": "softmax",
+        "classifier_type": "multi-class",
+        "classification_layer": "classify_head",
+        "save_dir": "/home/ariya/workspace/models/"
+    },
+
+    "dataset": {
+        "ds_root": "/home/ariya/workspace/datasets/",
+        "ds_name": "animals10-dvc",
+        "dvc_tag": "v1.0.0",
+        "dvc_checkout": true
+    },
+
+    "train":{
+        "hparams":{
+            "epochs": 5,
+            "batch_size": 16,
+            "init_lr": 1e-3
+        },
+    
+        "mlflow": {
+            "exp_name": "Train Animals10 classifier",
+            "exp_desc": "Train a classifier model",
+            "exp_tags": {"dataset":"Animals10"}
+        }
+    },
+
+    "evaluate":{
+        "mlflow": {
+            "exp_name": "Evaluate Animals10 classifier",
+            "exp_desc": "Evaluate a classifier model",
+            "exp_tags": {"dataset":"Animals10"}
+        }
+    }
+}

@@ -1,0 +1,168 @@
+version: '3.8'
+
+services:
+    jupyter:
+        # platform: linux/x86_64 # for others (mostly)
+        platform: linux/arm64 # for mac with apple chip
+        container_name: jupyter
+        build:
+            context: ./services/jupyter
+            dockerfile: Dockerfile
+            args:
+                NB_USER: ${JUPYTER_USER}
+                NB_PWD: 123456789
+                NB_UID: 1412
+                CONDA_DIR: /opt/anaconda3
+                ARCH: aarch64 # aarch64 for Mac with Apple's chip | x86_64 for others (mostly)
+                JUPYTER_PORT: ${JUPYTER_PORT}
+                MLFLOW_ARTIFACT_ROOT: ${MLFLOW_ARTIFACT_ROOT}
+                CENTRAL_MODEL_STORAGE_PATH: /home/${JUPYTER_USER}/central_model_storage
+        env_file:
+            - .env
+        environment:
+            - MLFLOW_TRACKING_URI=http://mlflow:${MLFLOW_PORT}
+            - PREFECT_API_URL=http://prefect:${PREFECT_PORT}/api
+            - CENTRAL_MODEL_STORAGE_PATH=/home/${JUPYTER_USER}/central_model_storage
+        networks:
+            - mlops_network
+        ports: 
+            - "${JUPYTER_PORT}:${JUPYTER_PORT}"
+        volumes:
+            - ./:/home/${JUPYTER_USER}/workspace/
+            - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
+            - central_model_storage:/home/${JUPYTER_USER}/central_model_storage
+        depends_on:
+            - mlflow
+            - prefect
+
+    mlflow:
+        platform: linux/arm64
+        container_name: mlflow
+        build:
+            context: ./services/mlflow
+            dockerfile: Dockerfile
+            args:
+                MLFLOW_PORT: ${MLFLOW_PORT}
+        env_file:
+            - .env
+        environment:
+            - BACKEND_STORE_URI=postgresql://mlflow_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/mlflow_pg_db
+        networks:
+            - mlops_network
+        ports:
+            - "${MLFLOW_PORT}:${MLFLOW_PORT}"
+        volumes:
+            - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
+        depends_on:
+            postgres:
+                condition: service_healthy
+
+    prefect:
+        platform: linux/arm64
+        container_name: prefect
+        build:
+            context: ./services/prefect
+            dockerfile: Dockerfile
+            args:
+                PREFECT_PORT: ${PREFECT_PORT}
+        env_file:
+            - .env
+        environment:
+            - PREFECT_API_URL=http://127.0.0.1:${PREFECT_PORT}/api
+            - PREFECT_API_DATABASE_CONNECTION_URL=postgresql+asyncpg://prefect_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/prefect_pg_db
+        networks:
+            - mlops_network
+        ports:
+            - "${PREFECT_PORT}:${PREFECT_PORT}"
+        volumes:
+            - prefect_db:${PREFECT_LOCAL_STORAGE_PATH}
+        depends_on:
+            postgres:
+                condition: service_healthy
+
+    dl_service:
+        platform: linux/arm64
+        container_name: dl_service
+        build:
+            context: ./services/dl_service
+            dockerfile: Dockerfile
+            args:
+                DL_SERVICE_PORT: ${DL_SERVICE_PORT}
+        env_file:
+            - .env
+        environment:
+            - CENTRAL_MODEL_STORAGE_PATH=/service/central_model_storage
+        networks:
+            - mlops_network
+        volumes:
+            - central_model_storage:/service/central_model_storage
+            - ./services/dl_service/app/:/service/app/
+
+    web_ui:
+        platform: linux/arm64
+        container_name: web_ui
+        build:
+            context: ./services/web_ui
+            dockerfile: Dockerfile
+            args:
+                WEB_UI_PORT: ${WEB_UI_PORT}
+        env_file:
+            - .env
+        environment:
+            - PREDICT_ENDPOINT=http://dl_service:${DL_SERVICE_PORT}/predict/
+        networks:
+            - mlops_network
+        ports:
+            - "${WEB_UI_PORT}:${WEB_UI_PORT}"
+        volumes:
+            - ./services/web_ui/app/:/service/app/
+        depends_on:
+            - dl_service
+
+    postgres:
+        platform: linux/arm64
+        container_name: postgres
+        image: postgres:15.3
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+        networks:
+            - mlops_network
+        ports:
+            - "${POSTGRES_PORT}:5432"
+        volumes:
+            - ./services/postgres/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+            - pgdata:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+        
+    pgadmin:
+        platform: linux/arm64
+        container_name: pgadmin
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=pgadmin@gmail.com
+            - PGADMIN_DEFAULT_PASSWORD=SuperSecurePwdHere
+        networks:
+            - mlops_network
+        ports:
+            - "16543:80"
+        depends_on:
+            postgres:
+                condition: service_healthy
+
+networks:
+    mlops_network:
+        driver: "bridge"
+
+volumes:
+    mlflow_db:
+    prefect_db:
+    pgdata:
+    central_model_storage:

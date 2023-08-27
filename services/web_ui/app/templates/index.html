@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', path='js/ui_manager.js') }}"></script>
+  <title>Full-stack MLOps for Computer Vision</title>
+</head>
+
+<body>
+  <form action="/" enctype="multipart/form-data" method="post" style="display: inline;">
+
+    {% if model_name %}
+    <h1><strong>Classify Images</strong> with {{ model_name }} </h1>
+    {% else %}
+    <h1><strong>Classify Images</strong> with ANY models you put (really) </h1>
+    {% endif %}
+
+    <div class="form-group file-area">
+      <label for="images">Image <span>Choose the image you want to classify</span></label>
+      <input type="file" name="file" id="images" required="required" />
+      <div class="file-dummy">
+        <div class="success">Your file is selected. Let's upload & make a prediction!</div>
+        <div class="default">Please select an image</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="normal-button">Upload image</button>
+    </div>
+
+  </form>
+
+  {% if img %}
+  <form action="/" method="get">
+    <div class="form-group">
+      <button type="submit" class="reset">Reset</button>
+    </div>
+  </form>
+
+  <form action="/call_api" method="post">
+    <!-- <div> -->
+      <button type="submit" class="predict-button">Make a prediction</button>
+    <!-- </div> -->
+  </form>
+  {% endif %}
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet'
+    type='text/css'>
+
+  {% if pred_result %}
+  <h1>Prediction: <b>{{ pred_result[0][0] }}</b></h1>
+  <h2>Top 3:</h2>
+  {% for class_name, prob in pred_result[:3] %}
+  <h3>{{ class_name }} : {{ "%.2f"|format(prob*100) }}%</h3>
+  {% endfor %}
+  {% elif img %}
+  <h1>Received Image</h1>
+  <img id="ori_img" src="data:image/jpeg;base64,{{ img }}" />
+  {% endif %}
+
+  {% if pred_result %}
+  <div class="slider-container">
+  <button onclick="ImgSwitch()" style="margin: auto; display:block;">GradCAM Heatmap On/Off</button>
+  <br><input id="slider" type="range" min="0" max="100" value="50"><br><br>
+  </div>
+  <div class="img-container">
+    <img id="ori_img" src="data:image/jpeg;base64,{{ img }}" />
+    <img id="overlaid_img" src="data:image/jpeg;base64,{{ raw_hm_img }}" />
+  </div>
+  {% endif %}
+
+</body>
+
+</html>
