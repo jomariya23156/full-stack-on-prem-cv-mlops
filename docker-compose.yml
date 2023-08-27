@@ -109,13 +109,26 @@ services:
         env_file:
             - .env
         environment:
-            - PREDICT_ENDPOINT=http://dl_service:${DL_SERVICE_PORT}/predict/
+            - PREDICT_ENDPOINT=http://nginx:${NGINX_PORT}/predict/
         networks:
             - mlops_network
         ports:
             - "${WEB_UI_PORT}:${WEB_UI_PORT}"
         volumes:
             - ./services/web_ui/app/:/service/app/
+        depends_on:
+            - dl_service
+
+    nginx:
+        platform: linux/arm64
+        container_name: nginx
+        build:
+            context: ./services/nginx
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        networks:
+            - mlops_network
         depends_on:
             - dl_service
 
@@ -130,6 +143,7 @@ services:
             - POSTGRES_DB=postgres
         networks:
             - mlops_network
+        # might not need this cuz we don't directly access postgres anyways
         ports:
             - "${POSTGRES_PORT}:5432"
         volumes:
