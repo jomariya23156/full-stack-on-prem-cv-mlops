@@ -1,0 +1,183 @@
+{
+  "id": "0edfdd9c-d1bf-42d4-947e-3bcecefbdc5f",
+  "name": "Demo Project",
+  "description": "A toy demo project using Bike Demand forecasting dataset",
+  "dashboard": {
+    "name": "Demo Project",
+    "panels": [
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "Bike Rental Demand Forecast",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "Model Calls",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "sum",
+        "value": {
+          "field_path": "current.number_of_rows",
+          "metric_id": "DatasetSummaryMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": "count"
+        },
+        "text": "count"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "Share of Drifted Features",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "share_of_drifted_columns",
+          "metric_id": "DatasetDriftMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": "share"
+        },
+        "text": "share"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelPlot",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "Target and Prediction",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "values": [
+          {
+            "field_path": "current_characteristics.mean",
+            "metric_id": "ColumnSummaryMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "cnt"
+            },
+            "legend": "Target (daily mean)"
+          },
+          {
+            "field_path": "current_characteristics.mean",
+            "metric_id": "ColumnSummaryMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "prediction"
+            },
+            "legend": "Prediction (daily mean)"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelPlot",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "MAE",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.mean_abs_error",
+            "metric_id": "RegressionQualityMetric",
+            "metric_hash": null,
+            "metric_args": {},
+            "legend": "MAE"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelPlot",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "MAPE",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.mean_abs_perc_error",
+            "metric_id": "RegressionQualityMetric",
+            "metric_hash": null,
+            "metric_args": {},
+            "legend": "MAPE"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelPlot",
+        "id": "d80bb635-5bcd-4522-a040-8e43dc6f9bd7",
+        "title": "Features Drift (Wasserstein Distance)",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "temp"
+            },
+            "legend": "temp"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "atemp"
+            },
+            "legend": "atemp"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "hum"
+            },
+            "legend": "hum"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_hash": null,
+            "metric_args": {
+              "column_name.name": "windspeed"
+            },
+            "legend": "windspeed"
+          }
+        ],
+        "plot_type": "line"
+      }
+    ]
+  },
+  "date_from": null,
+  "date_to": null
+}

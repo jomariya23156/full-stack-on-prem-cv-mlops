@@ -27,6 +27,7 @@ services:
             - mlops_network
         ports: 
             - "${JUPYTER_PORT}:${JUPYTER_PORT}"
+            - "8000:8000" # for dev
         volumes:
             - ./:/home/${JUPYTER_USER}/workspace/
             - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
@@ -92,6 +93,9 @@ services:
             - .env
         environment:
             - CENTRAL_MODEL_STORAGE_PATH=/service/central_model_storage
+            - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
+            - DB_PREDICTION_TABLE_NAME=predictions
+            - DB_API_LOG_TABLE_NAME=api_log
         networks:
             - mlops_network
         volumes:
@@ -122,6 +126,7 @@ services:
     nginx:
         platform: linux/arm64
         container_name: nginx
+        restart: always
         build:
             context: ./services/nginx
             dockerfile: Dockerfile
@@ -148,7 +153,7 @@ services:
             - "${POSTGRES_PORT}:5432"
         volumes:
             - ./services/postgres/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
-            - pgdata:/var/lib/postgresql/data
+            - pgdata_new:/var/lib/postgresql/data
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U postgres"]
             interval: 5s
@@ -178,5 +183,5 @@ networks:
 volumes:
     mlflow_db:
     prefect_db:
-    pgdata:
+    pgdata_new:
     central_model_storage:

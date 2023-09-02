@@ -17,3 +17,13 @@ CREATE DATABASE prefect_pg_db
     LC_CTYPE = 'en_US.utf8'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
+
+CREATE USER dlservice_user WITH PASSWORD 'SuperSecurePwdHere' CREATEDB;
+CREATE DATABASE dlservice_pg_db
+    WITH 
+    OWNER = dlservice_user
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;

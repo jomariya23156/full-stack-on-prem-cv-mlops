@@ -1,0 +1,4997 @@
+{
+  "id": "e0bfb900-01e4-42d5-801a-d86c423e50b6",
+  "timestamp": "2023-02-17T00:00:00",
+  "metadata": {
+    "test_presets": [
+      "DataDriftTestPreset"
+    ]
+  },
+  "tags": [],
+  "suite": {
+    "metrics": [
+      {
+        "type": "evidently.metrics.data_drift.data_drift_table.DataDriftTable",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "stattest": null,
+        "cat_stattest": null,
+        "num_stattest": null,
+        "text_stattest": null,
+        "per_column_stattest": null,
+        "stattest_threshold": null,
+        "cat_stattest_threshold": null,
+        "num_stattest_threshold": null,
+        "text_stattest_threshold": null,
+        "per_column_stattest_threshold": null,
+        "columns": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "cnt",
+          "display_name": "cnt",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "prediction",
+          "display_name": "prediction",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "season",
+          "display_name": "season",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "holiday",
+          "display_name": "holiday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "workingday",
+          "display_name": "workingday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "atemp",
+          "display_name": "atemp",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "hr",
+          "display_name": "hr",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "hum",
+          "display_name": "hum",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "temp",
+          "display_name": "temp",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "weekday",
+          "display_name": "weekday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.metrics.data_drift.column_drift_metric.ColumnDriftMetric",
+        "options": {
+          "color": null,
+          "render": null,
+          "custom": {}
+        },
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "windspeed",
+          "display_name": "windspeed",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      }
+    ],
+    "metric_results": [
+      {
+        "type": "evidently.metrics.data_drift.data_drift_table.DataDriftTableResults",
+        "number_of_columns": 11,
+        "number_of_drifted_columns": 6,
+        "share_of_drifted_columns": 0.5454545454545454,
+        "dataset_drift": true,
+        "drift_by_columns": {
+          "cnt": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "cnt",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 0.5082077690396019,
+            "drift_detected": false,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1.0,
+                  36.266666666666666,
+                  71.53333333333333,
+                  106.8,
+                  142.06666666666666,
+                  177.33333333333331,
+                  212.6,
+                  247.86666666666667,
+                  283.1333333333333,
+                  318.4,
+                  353.66666666666663,
+                  388.93333333333334,
+                  424.2,
+                  459.46666666666664,
+                  494.73333333333335,
+                  530.0
+                ],
+                "y": [
+                  8,
+                  5,
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  1.0,
+                  50.7,
+                  100.4,
+                  150.10000000000002,
+                  199.8,
+                  249.5,
+                  299.20000000000005,
+                  348.90000000000003,
+                  398.6,
+                  448.3,
+                  498.0
+                ],
+                "y": [
+                  0.008048289738430582,
+                  0.004024144869215291,
+                  0.002414486921529174,
+                  0.0,
+                  0.0016096579476861169,
+                  0.002414486921529173,
+                  0.0,
+                  0.0008048289738430584,
+                  0.0,
+                  0.0008048289738430584
+                ]
+              },
+              "correlations": {
+                "atemp": -0.05288808843689546,
+                "hr": 0.3654205583662176,
+                "hum": 0.3376721251945203,
+                "temp": 0.18188746196356537,
+                "weekday": -0.1407923189156539,
+                "windspeed": 0.18649593238604392,
+                "cnt": 1.0
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1.0,
+                  36.266666666666666,
+                  71.53333333333333,
+                  106.8,
+                  142.06666666666666,
+                  177.33333333333331,
+                  212.6,
+                  247.86666666666667,
+                  283.1333333333333,
+                  318.4,
+                  353.66666666666663,
+                  388.93333333333334,
+                  424.2,
+                  459.46666666666664,
+                  494.73333333333335,
+                  530.0
+                ],
+                "y": [
+                  174,
+                  86,
+                  92,
+                  82,
+                  51,
+                  56,
+                  39,
+                  21,
+                  13,
+                  11,
+                  11,
+                  13,
+                  5,
+                  8,
+                  7
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  1.0,
+                  53.9,
+                  106.8,
+                  159.7,
+                  212.6,
+                  265.5,
+                  318.4,
+                  371.3,
+                  424.2,
+                  477.09999999999997,
+                  530.0
+                ],
+                "y": [
+                  0.005962119349761656,
+                  0.00398416506311087,
+                  0.0030517008994040713,
+                  0.0022887756745530526,
+                  0.0013845680006555504,
+                  0.0006781557554231271,
+                  0.000423847347139454,
+                  0.0005651297961859393,
+                  0.0003108213879022666,
+                  0.0002543084082836724
+                ]
+              },
+              "correlations": {
+                "atemp": 0.3360396888396513,
+                "hr": 0.3839446145717855,
+                "hum": -0.2106358786376789,
+                "temp": 0.35593495575873274,
+                "weekday": 0.11389229912598717,
+                "windspeed": 0.10332485488908208,
+                "cnt": 1.0
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 23.0,
+                    "1": 5.0,
+                    "2": 7.0,
+                    "3": 1.0,
+                    "4": 3.0,
+                    "5": 20.0,
+                    "6": 87.0,
+                    "7": 288.0,
+                    "8": 498.0,
+                    "9": 202.0,
+                    "10": 44.0,
+                    "11": 71.0,
+                    "12": 45.0,
+                    "13": 64.0,
+                    "14": 31.0,
+                    "15": 53.0,
+                    "16": 118.0,
+                    "17": 289.0,
+                    "18": 353.0,
+                    "19": 258.0,
+                    "20": 216.0,
+                    "21": 145.0,
+                    "22": 111.0,
+                    "23": 73.0,
+                    "24": 34.0
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 10.456850767145099,
+                "y1": 244.75391156469345
+              }
+            }
+          },
+          "prediction": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "prediction",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 0.36492064361700755,
+            "drift_detected": false,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1.54,
+                  35.181333333333335,
+                  68.82266666666668,
+                  102.46400000000001,
+                  136.10533333333333,
+                  169.74666666666667,
+                  203.388,
+                  237.02933333333334,
+                  270.6706666666667,
+                  304.31200000000007,
+                  337.9533333333334,
+                  371.5946666666667,
+                  405.23600000000005,
+                  438.8773333333334,
+                  472.5186666666667,
+                  506.16
+                ],
+                "y": [
+                  7,
+                  0,
+                  1,
+                  7,
+                  4,
+                  3,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  4.92,
+                  51.73,
+                  98.53999999999999,
+                  145.34999999999997,
+                  192.15999999999997,
+                  238.96999999999997,
+                  285.78,
+                  332.59,
+                  379.4,
+                  426.21,
+                  473.02
+                ],
+                "y": [
+                  0.0059816278572954506,
+                  0.0008545182653279215,
+                  0.005981627857295453,
+                  0.00598162785729545,
+                  0.0017090365306558428,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0008545182653279214
+                ]
+              },
+              "correlations": {
+                "atemp": -0.025268779661761276,
+                "hr": 0.3620956668700781,
+                "hum": 0.09428582224030685,
+                "temp": 0.256910485149817,
+                "weekday": -0.21121996876347088,
+                "windspeed": 0.2927471588405232,
+                "prediction": 1.0
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1.54,
+                  35.181333333333335,
+                  68.82266666666668,
+                  102.46400000000001,
+                  136.10533333333333,
+                  169.74666666666667,
+                  203.388,
+                  237.02933333333334,
+                  270.6706666666667,
+                  304.31200000000007,
+                  337.9533333333334,
+                  371.5946666666667,
+                  405.23600000000005,
+                  438.8773333333334,
+                  472.5186666666667,
+                  506.16
+                ],
+                "y": [
+                  165,
+                  64,
+                  104,
+                  80,
+                  59,
+                  63,
+                  41,
+                  19,
+                  15,
+                  15,
+                  8,
+                  7,
+                  15,
+                  9,
+                  5
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  1.54,
+                  52.002,
+                  102.46400000000001,
+                  152.92600000000002,
+                  203.388,
+                  253.85,
+                  304.31200000000007,
+                  354.77400000000006,
+                  405.23600000000005,
+                  455.69800000000004,
+                  506.16
+                ],
+                "y": [
+                  0.005835467425976503,
+                  0.004028546040268042,
+                  0.003258382826687387,
+                  0.0027251929095930883,
+                  0.0015403264271613107,
+                  0.000681298227398271,
+                  0.0005628115791550944,
+                  0.00032583828266873885,
+                  0.0006220549032766833,
+                  0.0002369732964863555
+                ]
+              },
+              "correlations": {
+                "atemp": 0.34738871426291423,
+                "hr": 0.40185635186101987,
+                "hum": -0.21237037517353471,
+                "temp": 0.3677724091032347,
+                "weekday": 0.10883832197066357,
+                "windspeed": 0.10852066450701066,
+                "prediction": 1.0
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 22.82,
+                    "1": 16.48,
+                    "2": 8.62,
+                    "3": 7.64,
+                    "4": 4.92,
+                    "5": 25.66,
+                    "6": 81.92,
+                    "7": 220.94,
+                    "8": 473.02,
+                    "9": 223.96,
+                    "10": 171.4,
+                    "11": 155.98,
+                    "12": 110.38,
+                    "13": 182.04,
+                    "14": 122.68,
+                    "15": 129.06,
+                    "16": 165.92,
+                    "17": 191.28,
+                    "18": 167.12,
+                    "19": 134.58,
+                    "20": 128.54,
+                    "21": 150.82,
+                    "22": 120.22,
+                    "23": 104.62,
+                    "24": 24.06
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 15.875228593787995,
+                "y1": 240.06671061896736
+              }
+            }
+          },
+          "atemp": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "atemp",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 1.546280432200121e-09,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0152,
+                  0.05599230769230769,
+                  0.09678461538461539,
+                  0.13757692307692307,
+                  0.17836923076923075,
+                  0.21916153846153844,
+                  0.25995384615384615,
+                  0.30074615384615383,
+                  0.3415384615384615,
+                  0.3823307692307692,
+                  0.4231230769230769,
+                  0.46391538461538456,
+                  0.5047076923076923,
+                  0.5455
+                ],
+                "y": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  20,
+                  5,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.303,
+                  0.30906,
+                  0.31512,
+                  0.32117999999999997,
+                  0.32724,
+                  0.3333,
+                  0.33936,
+                  0.34542,
+                  0.35147999999999996,
+                  0.35753999999999997,
+                  0.3636
+                ],
+                "y": [
+                  19.80198019801977,
+                  0.0,
+                  46.20462046204655,
+                  0.0,
+                  0.0,
+                  66.0066006600659,
+                  0.0,
+                  13.2013201320133,
+                  0.0,
+                  19.80198019801977
+                ]
+              },
+              "correlations": {
+                "atemp": 1.0,
+                "hr": 0.47620943391776743,
+                "hum": 0.4283009541224455,
+                "temp": 0.6631016676001732,
+                "weekday": 0.03588183805980226,
+                "windspeed": -0.6498435453272322
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0152,
+                  0.05599230769230769,
+                  0.09678461538461539,
+                  0.13757692307692307,
+                  0.17836923076923075,
+                  0.21916153846153844,
+                  0.25995384615384615,
+                  0.30074615384615383,
+                  0.3415384615384615,
+                  0.3823307692307692,
+                  0.4231230769230769,
+                  0.46391538461538456,
+                  0.5047076923076923,
+                  0.5455
+                ],
+                "y": [
+                  7,
+                  7,
+                  46,
+                  59,
+                  100,
+                  139,
+                  59,
+                  97,
+                  32,
+                  40,
+                  64,
+                  15,
+                  4
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0152,
+                  0.06823,
+                  0.12126,
+                  0.17429,
+                  0.22732,
+                  0.28035,
+                  0.33338,
+                  0.38641,
+                  0.43944,
+                  0.49247,
+                  0.5455
+                ],
+                "y": [
+                  0.28187220647026373,
+                  0.7328677368226856,
+                  2.3395393137031895,
+                  4.679078627406379,
+                  3.0442198298788488,
+                  3.41065369829019,
+                  0.9019910607048446,
+                  2.4241009756442673,
+                  0.8456166194107908,
+                  0.19731054452918473
+                ]
+              },
+              "correlations": {
+                "atemp": 1.0,
+                "hr": 0.18182515563967716,
+                "hum": 0.10592114913060185,
+                "temp": 0.9732462472072683,
+                "weekday": 0.13057270885744834,
+                "windspeed": -0.013473319933771743
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 0.303,
+                    "1": 0.3333,
+                    "2": 0.3182,
+                    "3": 0.3333,
+                    "4": 0.3182,
+                    "5": 0.3333,
+                    "6": 0.3182,
+                    "7": 0.303,
+                    "8": 0.3182,
+                    "9": 0.303,
+                    "10": 0.3333,
+                    "11": 0.3333,
+                    "12": 0.3333,
+                    "13": 0.3182,
+                    "14": 0.3182,
+                    "15": 0.3636,
+                    "16": 0.3636,
+                    "17": 0.3636,
+                    "18": 0.3333,
+                    "19": 0.3182,
+                    "20": 0.3333,
+                    "21": 0.3485,
+                    "22": 0.3485,
+                    "23": 0.3333,
+                    "24": 0.3333
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 0.1696027770750576,
+                "y1": 0.37371800020446405
+              }
+            }
+          },
+          "hr": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "hr",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 0.9999999999909155,
+            "drift_detected": false,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  2.090909090909091,
+                  4.181818181818182,
+                  6.2727272727272725,
+                  8.363636363636363,
+                  10.454545454545453,
+                  12.545454545454545,
+                  14.636363636363637,
+                  16.727272727272727,
+                  18.818181818181817,
+                  20.909090909090907,
+                  23.0
+                ],
+                "y": [
+                  4,
+                  2,
+                  2,
+                  2,
+                  2,
+                  2,
+                  2,
+                  2,
+                  2,
+                  2,
+                  3
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0,
+                  2.3,
+                  4.6,
+                  6.8999999999999995,
+                  9.2,
+                  11.5,
+                  13.799999999999999,
+                  16.099999999999998,
+                  18.4,
+                  20.7,
+                  23.0
+                ],
+                "y": [
+                  0.06956521739130435,
+                  0.034782608695652174,
+                  0.034782608695652174,
+                  0.052173913043478265,
+                  0.03478260869565217,
+                  0.03478260869565219,
+                  0.052173913043478286,
+                  0.03478260869565217,
+                  0.03478260869565217,
+                  0.052173913043478244
+                ]
+              },
+              "correlations": {
+                "atemp": 0.47620943391776743,
+                "hr": 1.0,
+                "hum": 0.6583631303088854,
+                "temp": 0.7709619713273326,
+                "weekday": -0.31531512986838944,
+                "windspeed": 0.1629192437811257
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  2.090909090909091,
+                  4.181818181818182,
+                  6.2727272727272725,
+                  8.363636363636363,
+                  10.454545454545453,
+                  12.545454545454545,
+                  14.636363636363637,
+                  16.727272727272727,
+                  18.818181818181817,
+                  20.909090909090907,
+                  23.0
+                ],
+                "y": [
+                  84,
+                  53,
+                  56,
+                  56,
+                  56,
+                  56,
+                  56,
+                  56,
+                  56,
+                  56,
+                  84
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0,
+                  2.3,
+                  4.6,
+                  6.8999999999999995,
+                  9.2,
+                  11.5,
+                  13.799999999999999,
+                  16.099999999999998,
+                  18.4,
+                  20.7,
+                  23.0
+                ],
+                "y": [
+                  0.054591538311561716,
+                  0.03444466107753298,
+                  0.03639435887437448,
+                  0.054591538311561716,
+                  0.036394358874374456,
+                  0.03639435887437449,
+                  0.05459153831156174,
+                  0.036394358874374456,
+                  0.036394358874374456,
+                  0.054591538311561695
+                ]
+              },
+              "correlations": {
+                "atemp": 0.18182515563967716,
+                "hr": 1.0,
+                "hum": -0.22267785169286308,
+                "temp": 0.22124742458802749,
+                "weekday": -0.003687567042079995,
+                "windspeed": 0.15230244997379175
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 0.0,
+                    "1": 1.0,
+                    "2": 2.0,
+                    "3": 3.0,
+                    "4": 4.0,
+                    "5": 5.0,
+                    "6": 6.0,
+                    "7": 7.0,
+                    "8": 8.0,
+                    "9": 9.0,
+                    "10": 10.0,
+                    "11": 11.0,
+                    "12": 12.0,
+                    "13": 13.0,
+                    "14": 14.0,
+                    "15": 15.0,
+                    "16": 16.0,
+                    "17": 17.0,
+                    "18": 18.0,
+                    "19": 19.0,
+                    "20": 20.0,
+                    "21": 21.0,
+                    "22": 22.0,
+                    "23": 23.0,
+                    "24": 0.0
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 4.618747999569198,
+                "y1": 18.457485184287304
+              }
+            }
+          },
+          "hum": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "hum",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 4.426367127277614e-08,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.25,
+                  0.3125,
+                  0.375,
+                  0.4375,
+                  0.5,
+                  0.5625,
+                  0.625,
+                  0.6875,
+                  0.75,
+                  0.8125,
+                  0.875,
+                  0.9375,
+                  1.0
+                ],
+                "y": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  12,
+                  7,
+                  5,
+                  0,
+                  0
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.61,
+                  0.636,
+                  0.662,
+                  0.688,
+                  0.714,
+                  0.74,
+                  0.766,
+                  0.792,
+                  0.8180000000000001,
+                  0.844,
+                  0.87
+                ],
+                "y": [
+                  1.538461538461537,
+                  0.0,
+                  0.0,
+                  18.461538461538446,
+                  0.0,
+                  3.076923076923074,
+                  0.0,
+                  7.692307692307686,
+                  0.0,
+                  7.692307692307686
+                ]
+              },
+              "correlations": {
+                "atemp": 0.4283009541224455,
+                "hr": 0.6583631303088854,
+                "hum": 1.0,
+                "temp": 0.5650699031627539,
+                "weekday": 0.3094203292143957,
+                "windspeed": -0.01692832809179876
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.25,
+                  0.3125,
+                  0.375,
+                  0.4375,
+                  0.5,
+                  0.5625,
+                  0.625,
+                  0.6875,
+                  0.75,
+                  0.8125,
+                  0.875,
+                  0.9375,
+                  1.0
+                ],
+                "y": [
+                  14,
+                  66,
+                  74,
+                  86,
+                  92,
+                  42,
+                  31,
+                  51,
+                  91,
+                  57,
+                  49,
+                  16
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.25,
+                  0.325,
+                  0.4,
+                  0.475,
+                  0.55,
+                  0.625,
+                  0.7,
+                  0.775,
+                  0.85,
+                  0.9249999999999999,
+                  1.0
+                ],
+                "y": [
+                  0.3986048829098156,
+                  1.634280019930244,
+                  2.3517688091679134,
+                  1.853512705530641,
+                  1.2157448928749384,
+                  0.7573492775286502,
+                  1.6741405082212244,
+                  1.1160936721474843,
+                  1.1160936721474843,
+                  1.2157448928749366
+                ]
+              },
+              "correlations": {
+                "atemp": 0.10592114913060185,
+                "hr": -0.22267785169286308,
+                "hum": 1.0,
+                "temp": 0.028028248110581393,
+                "weekday": -0.05810591464008471,
+                "windspeed": -0.39165754995870705
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 0.7,
+                    "1": 0.7,
+                    "2": 0.7,
+                    "3": 0.61,
+                    "4": 0.7,
+                    "5": 0.7,
+                    "6": 0.7,
+                    "7": 0.7,
+                    "8": 0.7,
+                    "9": 0.7,
+                    "10": 0.7,
+                    "11": 0.7,
+                    "12": 0.76,
+                    "13": 0.71,
+                    "14": 0.81,
+                    "15": 0.76,
+                    "16": 0.81,
+                    "17": 0.87,
+                    "18": 0.87,
+                    "19": 0.87,
+                    "20": 0.87,
+                    "21": 0.81,
+                    "22": 0.81,
+                    "23": 0.81,
+                    "24": 0.87
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 0.4131766588936634,
+                "y1": 0.806883131838773
+              }
+            }
+          },
+          "temp": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "temp",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 8.770831290674952e-09,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.02,
+                  0.06307692307692307,
+                  0.10615384615384615,
+                  0.14923076923076922,
+                  0.1923076923076923,
+                  0.23538461538461536,
+                  0.2784615384615385,
+                  0.32153846153846155,
+                  0.3646153846153846,
+                  0.4076923076923077,
+                  0.45076923076923076,
+                  0.4938461538461538,
+                  0.536923076923077,
+                  0.58
+                ],
+                "y": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  19,
+                  6,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.3,
+                  0.304,
+                  0.308,
+                  0.312,
+                  0.316,
+                  0.32,
+                  0.324,
+                  0.328,
+                  0.332,
+                  0.336,
+                  0.34
+                ],
+                "y": [
+                  109.99999999999991,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  79.99999999999993,
+                  0.0,
+                  0.0,
+                  0.0,
+                  59.99999999999994
+                ]
+              },
+              "correlations": {
+                "atemp": 0.6631016676001732,
+                "hr": 0.7709619713273326,
+                "hum": 0.5650699031627539,
+                "temp": 1.0,
+                "weekday": -0.20412414523193212,
+                "windspeed": 0.09968005800295023
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.02,
+                  0.06307692307692307,
+                  0.10615384615384615,
+                  0.14923076923076922,
+                  0.1923076923076923,
+                  0.23538461538461536,
+                  0.2784615384615385,
+                  0.32153846153846155,
+                  0.3646153846153846,
+                  0.4076923076923077,
+                  0.45076923076923076,
+                  0.4938461538461538,
+                  0.536923076923077,
+                  0.58
+                ],
+                "y": [
+                  10,
+                  10,
+                  43,
+                  88,
+                  116,
+                  108,
+                  104,
+                  67,
+                  40,
+                  46,
+                  22,
+                  11,
+                  4
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.02,
+                  0.076,
+                  0.13199999999999998,
+                  0.18799999999999997,
+                  0.24399999999999997,
+                  0.3,
+                  0.356,
+                  0.412,
+                  0.46799999999999997,
+                  0.524,
+                  0.58
+                ],
+                "y": [
+                  0.266922912662823,
+                  0.69399957292334,
+                  3.0696134956224648,
+                  4.270766602605168,
+                  2.4023062139654057,
+                  3.1763826606875933,
+                  1.7616912235746318,
+                  1.708306641042067,
+                  0.4003843689942341,
+                  0.1067691650651293
+                ]
+              },
+              "correlations": {
+                "atemp": 0.9732462472072683,
+                "hr": 0.22124742458802749,
+                "hum": 0.028028248110581393,
+                "temp": 1.0,
+                "weekday": 0.1345701420904196,
+                "windspeed": 0.17320896193003418
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 0.3,
+                    "1": 0.3,
+                    "2": 0.3,
+                    "3": 0.3,
+                    "4": 0.3,
+                    "5": 0.3,
+                    "6": 0.3,
+                    "7": 0.3,
+                    "8": 0.3,
+                    "9": 0.3,
+                    "10": 0.32,
+                    "11": 0.32,
+                    "12": 0.32,
+                    "13": 0.34,
+                    "14": 0.32,
+                    "15": 0.34,
+                    "16": 0.34,
+                    "17": 0.34,
+                    "18": 0.34,
+                    "19": 0.32,
+                    "20": 0.32,
+                    "21": 0.34,
+                    "22": 0.32,
+                    "23": 0.32,
+                    "24": 0.3
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 0.16691025416278382,
+                "y1": 0.3747339909792192
+              }
+            }
+          },
+          "weekday": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "weekday",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 6.677442770563911e-08,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  0.5,
+                  1.0,
+                  1.5,
+                  2.0,
+                  2.5,
+                  3.0,
+                  3.5,
+                  4.0,
+                  4.5,
+                  5.0,
+                  5.5,
+                  6.0
+                ],
+                "y": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  24,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  4.0,
+                  4.1,
+                  4.2,
+                  4.3,
+                  4.4,
+                  4.5,
+                  4.6,
+                  4.7,
+                  4.8,
+                  4.9,
+                  5.0
+                ],
+                "y": [
+                  9.600000000000033,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.4000000000000014
+                ]
+              },
+              "correlations": {
+                "atemp": 0.03588183805980226,
+                "hr": -0.31531512986838944,
+                "hum": 0.3094203292143957,
+                "temp": -0.20412414523193212,
+                "weekday": 1.0,
+                "windspeed": -0.2548629734942522
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  0.5,
+                  1.0,
+                  1.5,
+                  2.0,
+                  2.5,
+                  3.0,
+                  3.5,
+                  4.0,
+                  4.5,
+                  5.0,
+                  5.5,
+                  6.0
+                ],
+                "y": [
+                  96,
+                  0,
+                  95,
+                  0,
+                  94,
+                  0,
+                  96,
+                  0,
+                  96,
+                  0,
+                  96,
+                  96
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0,
+                  0.6,
+                  1.2,
+                  1.7999999999999998,
+                  2.4,
+                  3.0,
+                  3.5999999999999996,
+                  4.2,
+                  4.8,
+                  5.3999999999999995,
+                  6.0
+                ],
+                "y": [
+                  0.23916292974588937,
+                  0.23667164922770306,
+                  0.0,
+                  0.23418036870951667,
+                  0.0,
+                  0.2391629297458895,
+                  0.23916292974588918,
+                  0.0,
+                  0.2391629297458895,
+                  0.23916292974588918
+                ]
+              },
+              "correlations": {
+                "atemp": 0.13057270885744834,
+                "hr": -0.003687567042079995,
+                "hum": -0.05810591464008471,
+                "temp": 0.1345701420904196,
+                "weekday": 1.0,
+                "windspeed": 0.015789992154088113
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 4.0,
+                    "1": 4.0,
+                    "2": 4.0,
+                    "3": 4.0,
+                    "4": 4.0,
+                    "5": 4.0,
+                    "6": 4.0,
+                    "7": 4.0,
+                    "8": 4.0,
+                    "9": 4.0,
+                    "10": 4.0,
+                    "11": 4.0,
+                    "12": 4.0,
+                    "13": 4.0,
+                    "14": 4.0,
+                    "15": 4.0,
+                    "16": 4.0,
+                    "17": 4.0,
+                    "18": 4.0,
+                    "19": 4.0,
+                    "20": 4.0,
+                    "21": 4.0,
+                    "22": 4.0,
+                    "23": 4.0,
+                    "24": 5.0
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 1.0022489873671971,
+                "y1": 5.0097091591200975
+              }
+            }
+          },
+          "windspeed": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "windspeed",
+            "column_type": "num",
+            "stattest_name": "K-S p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 1.1967694761726356e-05,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  0.046907142857142856,
+                  0.09381428571428571,
+                  0.14072142857142855,
+                  0.18762857142857142,
+                  0.2345357142857143,
+                  0.2814428571428571,
+                  0.32835,
+                  0.37525714285714284,
+                  0.4221642857142857,
+                  0.4690714285714286,
+                  0.5159785714285714,
+                  0.5628857142857142,
+                  0.6097928571428571,
+                  0.6567
+                ],
+                "y": [
+                  8,
+                  6,
+                  7,
+                  2,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0,
+                  0.025369999999999997,
+                  0.05073999999999999,
+                  0.07610999999999998,
+                  0.10147999999999999,
+                  0.12685,
+                  0.15221999999999997,
+                  0.17758999999999997,
+                  0.20295999999999997,
+                  0.22832999999999998,
+                  0.2537
+                ],
+                "y": [
+                  12.613322822230982,
+                  0.0,
+                  0.0,
+                  9.459992116673234,
+                  3.153330705557745,
+                  7.883326763894371,
+                  3.153330705557745,
+                  1.5766653527788725,
+                  0.0,
+                  1.5766653527788725
+                ]
+              },
+              "correlations": {
+                "atemp": -0.6498435453272322,
+                "hr": 0.1629192437811257,
+                "hum": -0.01692832809179876,
+                "temp": 0.09968005800295023,
+                "weekday": -0.2548629734942522,
+                "windspeed": 1.0
+              }
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0.0,
+                  0.046907142857142856,
+                  0.09381428571428571,
+                  0.14072142857142855,
+                  0.18762857142857142,
+                  0.2345357142857143,
+                  0.2814428571428571,
+                  0.32835,
+                  0.37525714285714284,
+                  0.4221642857142857,
+                  0.4690714285714286,
+                  0.5159785714285714,
+                  0.5628857142857142,
+                  0.6097928571428571,
+                  0.6567
+                ],
+                "y": [
+                  60,
+                  57,
+                  123,
+                  55,
+                  99,
+                  52,
+                  92,
+                  48,
+                  36,
+                  16,
+                  9,
+                  17,
+                  3,
+                  2
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0.0,
+                  0.06566999999999999,
+                  0.13133999999999998,
+                  0.19700999999999996,
+                  0.26267999999999997,
+                  0.32835,
+                  0.3940199999999999,
+                  0.45968999999999993,
+                  0.5253599999999999,
+                  0.5910299999999999,
+                  0.6567
+                ],
+                "y": [
+                  1.365708826781004,
+                  2.8679885362401083,
+                  3.641890204749345,
+                  2.2761813779683395,
+                  2.0940868677308724,
+                  1.6160887783575222,
+                  0.4779980893733513,
+                  0.637330785831135,
+                  0.20485632401715057,
+                  0.04552362755936679
+                ]
+              },
+              "correlations": {
+                "atemp": -0.013473319933771743,
+                "hr": 0.15230244997379175,
+                "hum": -0.39165754995870705,
+                "temp": 0.17320896193003418,
+                "weekday": 0.015789992154088113,
+                "windspeed": 1.0
+              }
+            },
+            "scatter": {
+              "type": "evidently.metric_results.ScatterAggField",
+              "scatter": {
+                "current (mean)": {
+                  "per": {
+                    "0": "2023-02-16T00:00:00",
+                    "1": "2023-02-16T01:00:00",
+                    "2": "2023-02-16T02:00:00",
+                    "3": "2023-02-16T03:00:00",
+                    "4": "2023-02-16T04:00:00",
+                    "5": "2023-02-16T05:00:00",
+                    "6": "2023-02-16T06:00:00",
+                    "7": "2023-02-16T07:00:00",
+                    "8": "2023-02-16T08:00:00",
+                    "9": "2023-02-16T09:00:00",
+                    "10": "2023-02-16T10:00:00",
+                    "11": "2023-02-16T11:00:00",
+                    "12": "2023-02-16T12:00:00",
+                    "13": "2023-02-16T13:00:00",
+                    "14": "2023-02-16T14:00:00",
+                    "15": "2023-02-16T15:00:00",
+                    "16": "2023-02-16T16:00:00",
+                    "17": "2023-02-16T17:00:00",
+                    "18": "2023-02-16T18:00:00",
+                    "19": "2023-02-16T19:00:00",
+                    "20": "2023-02-16T20:00:00",
+                    "21": "2023-02-16T21:00:00",
+                    "22": "2023-02-16T22:00:00",
+                    "23": "2023-02-16T23:00:00",
+                    "24": "2023-02-17T00:00:00"
+                  },
+                  "mean": {
+                    "0": 0.1343,
+                    "1": 0.0,
+                    "2": 0.0896,
+                    "3": 0.0,
+                    "4": 0.0896,
+                    "5": 0.0,
+                    "6": 0.0896,
+                    "7": 0.1343,
+                    "8": 0.0896,
+                    "9": 0.1642,
+                    "10": 0.1343,
+                    "11": 0.1045,
+                    "12": 0.0896,
+                    "13": 0.2537,
+                    "14": 0.194,
+                    "15": 0.0,
+                    "16": 0.0,
+                    "17": 0.0,
+                    "18": 0.1343,
+                    "19": 0.1642,
+                    "20": 0.1343,
+                    "21": 0.1045,
+                    "22": 0.0,
+                    "23": 0.0896,
+                    "24": 0.0
+                  },
+                  "std": {
+                    "0": NaN,
+                    "1": NaN,
+                    "2": NaN,
+                    "3": NaN,
+                    "4": NaN,
+                    "5": NaN,
+                    "6": NaN,
+                    "7": NaN,
+                    "8": NaN,
+                    "9": NaN,
+                    "10": NaN,
+                    "11": NaN,
+                    "12": NaN,
+                    "13": NaN,
+                    "14": NaN,
+                    "15": NaN,
+                    "16": NaN,
+                    "17": NaN,
+                    "18": NaN,
+                    "19": NaN,
+                    "20": NaN,
+                    "21": NaN,
+                    "22": NaN,
+                    "23": NaN,
+                    "24": NaN
+                  }
+                }
+              },
+              "x_name": "Index (hour)",
+              "plot_shape": {
+                "y0": 0.08219959826064213,
+                "y1": 0.3467893404538571
+              }
+            }
+          },
+          "season": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "season",
+            "column_type": "cat",
+            "stattest_name": "Z-test p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 1.0,
+            "drift_detected": false,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1
+                ],
+                "y": [
+                  25
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  1
+                ],
+                "y": [
+                  25
+                ]
+              },
+              "correlations": null
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1
+                ],
+                "y": [
+                  669
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  1
+                ],
+                "y": [
+                  669
+                ]
+              },
+              "correlations": null
+            },
+            "scatter": null
+          },
+          "holiday": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "holiday",
+            "column_type": "cat",
+            "stattest_name": "Z-test p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 0.1698870791463598,
+            "drift_detected": false,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0
+                ],
+                "y": [
+                  25
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0,
+                  1
+                ],
+                "y": [
+                  25,
+                  0
+                ]
+              },
+              "correlations": null
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  0,
+                  1
+                ],
+                "y": [
+                  622,
+                  47
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0,
+                  1
+                ],
+                "y": [
+                  622,
+                  47
+                ]
+              },
+              "correlations": null
+            },
+            "scatter": null
+          },
+          "workingday": {
+            "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+            "column_name": "workingday",
+            "column_type": "cat",
+            "stattest_name": "Z-test p_value",
+            "stattest_threshold": 0.05,
+            "drift_score": 0.00022347950044099285,
+            "drift_detected": true,
+            "current": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1
+                ],
+                "y": [
+                  25
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0,
+                  1
+                ],
+                "y": [
+                  0,
+                  25
+                ]
+              },
+              "correlations": null
+            },
+            "reference": {
+              "type": "evidently.calculations.data_drift.DriftStatsField",
+              "distribution": {
+                "type": "evidently.metric_results.Distribution",
+                "x": [
+                  1,
+                  0
+                ],
+                "y": [
+                  430,
+                  239
+                ]
+              },
+              "characteristic_examples": null,
+              "characteristic_words": null,
+              "small_distribution": {
+                "type": "evidently.metric_results.DistributionIncluded",
+                "x": [
+                  0,
+                  1
+                ],
+                "y": [
+                  239,
+                  430
+                ]
+              },
+              "correlations": null
+            },
+            "scatter": null
+          }
+        },
+        "dataset_columns": {
+          "type": "evidently.metric_results.DatasetColumns",
+          "utility_columns": {
+            "type": "evidently.metric_results.DatasetUtilityColumns",
+            "date": null,
+            "id": null,
+            "target": "cnt",
+            "prediction": "prediction"
+          },
+          "target_type": "num",
+          "num_feature_names": [
+            "atemp",
+            "hr",
+            "hum",
+            "temp",
+            "weekday",
+            "windspeed"
+          ],
+          "cat_feature_names": [
+            "season",
+            "holiday",
+            "workingday"
+          ],
+          "text_feature_names": [],
+          "datetime_feature_names": [],
+          "target_names": null,
+          "task": "regression"
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "cnt",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 0.5082077690396019,
+        "drift_detected": false,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1.0,
+              36.266666666666666,
+              71.53333333333333,
+              106.8,
+              142.06666666666666,
+              177.33333333333331,
+              212.6,
+              247.86666666666667,
+              283.1333333333333,
+              318.4,
+              353.66666666666663,
+              388.93333333333334,
+              424.2,
+              459.46666666666664,
+              494.73333333333335,
+              530.0
+            ],
+            "y": [
+              8,
+              5,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              1.0,
+              50.7,
+              100.4,
+              150.10000000000002,
+              199.8,
+              249.5,
+              299.20000000000005,
+              348.90000000000003,
+              398.6,
+              448.3,
+              498.0
+            ],
+            "y": [
+              0.008048289738430582,
+              0.004024144869215291,
+              0.002414486921529174,
+              0.0,
+              0.0016096579476861169,
+              0.002414486921529173,
+              0.0,
+              0.0008048289738430584,
+              0.0,
+              0.0008048289738430584
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1.0,
+              36.266666666666666,
+              71.53333333333333,
+              106.8,
+              142.06666666666666,
+              177.33333333333331,
+              212.6,
+              247.86666666666667,
+              283.1333333333333,
+              318.4,
+              353.66666666666663,
+              388.93333333333334,
+              424.2,
+              459.46666666666664,
+              494.73333333333335,
+              530.0
+            ],
+            "y": [
+              174,
+              86,
+              92,
+              82,
+              51,
+              56,
+              39,
+              21,
+              13,
+              11,
+              11,
+              13,
+              5,
+              8,
+              7
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              1.0,
+              53.9,
+              106.8,
+              159.7,
+              212.6,
+              265.5,
+              318.4,
+              371.3,
+              424.2,
+              477.09999999999997,
+              530.0
+            ],
+            "y": [
+              0.005962119349761656,
+              0.00398416506311087,
+              0.0030517008994040713,
+              0.0022887756745530526,
+              0.0013845680006555504,
+              0.0006781557554231271,
+              0.000423847347139454,
+              0.0005651297961859393,
+              0.0003108213879022666,
+              0.0002543084082836724
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 23.0,
+                "1": 5.0,
+                "2": 7.0,
+                "3": 1.0,
+                "4": 3.0,
+                "5": 20.0,
+                "6": 87.0,
+                "7": 288.0,
+                "8": 498.0,
+                "9": 202.0,
+                "10": 44.0,
+                "11": 71.0,
+                "12": 45.0,
+                "13": 64.0,
+                "14": 31.0,
+                "15": 53.0,
+                "16": 118.0,
+                "17": 289.0,
+                "18": 353.0,
+                "19": 258.0,
+                "20": 216.0,
+                "21": 145.0,
+                "22": 111.0,
+                "23": 73.0,
+                "24": 34.0
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 10.456850767145099,
+            "y1": 244.75391156469345
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "prediction",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 0.36492064361700755,
+        "drift_detected": false,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1.54,
+              35.181333333333335,
+              68.82266666666668,
+              102.46400000000001,
+              136.10533333333333,
+              169.74666666666667,
+              203.388,
+              237.02933333333334,
+              270.6706666666667,
+              304.31200000000007,
+              337.9533333333334,
+              371.5946666666667,
+              405.23600000000005,
+              438.8773333333334,
+              472.5186666666667,
+              506.16
+            ],
+            "y": [
+              7,
+              0,
+              1,
+              7,
+              4,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              4.92,
+              51.73,
+              98.53999999999999,
+              145.34999999999997,
+              192.15999999999997,
+              238.96999999999997,
+              285.78,
+              332.59,
+              379.4,
+              426.21,
+              473.02
+            ],
+            "y": [
+              0.0059816278572954506,
+              0.0008545182653279215,
+              0.005981627857295453,
+              0.00598162785729545,
+              0.0017090365306558428,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0008545182653279214
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1.54,
+              35.181333333333335,
+              68.82266666666668,
+              102.46400000000001,
+              136.10533333333333,
+              169.74666666666667,
+              203.388,
+              237.02933333333334,
+              270.6706666666667,
+              304.31200000000007,
+              337.9533333333334,
+              371.5946666666667,
+              405.23600000000005,
+              438.8773333333334,
+              472.5186666666667,
+              506.16
+            ],
+            "y": [
+              165,
+              64,
+              104,
+              80,
+              59,
+              63,
+              41,
+              19,
+              15,
+              15,
+              8,
+              7,
+              15,
+              9,
+              5
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              1.54,
+              52.002,
+              102.46400000000001,
+              152.92600000000002,
+              203.388,
+              253.85,
+              304.31200000000007,
+              354.77400000000006,
+              405.23600000000005,
+              455.69800000000004,
+              506.16
+            ],
+            "y": [
+              0.005835467425976503,
+              0.004028546040268042,
+              0.003258382826687387,
+              0.0027251929095930883,
+              0.0015403264271613107,
+              0.000681298227398271,
+              0.0005628115791550944,
+              0.00032583828266873885,
+              0.0006220549032766833,
+              0.0002369732964863555
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 22.82,
+                "1": 16.48,
+                "2": 8.62,
+                "3": 7.64,
+                "4": 4.92,
+                "5": 25.66,
+                "6": 81.92,
+                "7": 220.94,
+                "8": 473.02,
+                "9": 223.96,
+                "10": 171.4,
+                "11": 155.98,
+                "12": 110.38,
+                "13": 182.04,
+                "14": 122.68,
+                "15": 129.06,
+                "16": 165.92,
+                "17": 191.28,
+                "18": 167.12,
+                "19": 134.58,
+                "20": 128.54,
+                "21": 150.82,
+                "22": 120.22,
+                "23": 104.62,
+                "24": 24.06
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 15.875228593787995,
+            "y1": 240.06671061896736
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "season",
+        "column_type": "cat",
+        "stattest_name": "Z-test p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 1.0,
+        "drift_detected": false,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1
+            ],
+            "y": [
+              25
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              1
+            ],
+            "y": [
+              25
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1
+            ],
+            "y": [
+              669
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              1
+            ],
+            "y": [
+              669
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": null
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "holiday",
+        "column_type": "cat",
+        "stattest_name": "Z-test p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 0.1698870791463598,
+        "drift_detected": false,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0
+            ],
+            "y": [
+              25
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0,
+              1
+            ],
+            "y": [
+              25,
+              0
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0,
+              1
+            ],
+            "y": [
+              622,
+              47
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0,
+              1
+            ],
+            "y": [
+              622,
+              47
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": null
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "workingday",
+        "column_type": "cat",
+        "stattest_name": "Z-test p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 0.00022347950044099285,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1
+            ],
+            "y": [
+              25
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0,
+              1
+            ],
+            "y": [
+              0,
+              25
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              1,
+              0
+            ],
+            "y": [
+              430,
+              239
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0,
+              1
+            ],
+            "y": [
+              239,
+              430
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": null
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "atemp",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 1.546280432200121e-09,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0152,
+              0.05599230769230769,
+              0.09678461538461539,
+              0.13757692307692307,
+              0.17836923076923075,
+              0.21916153846153844,
+              0.25995384615384615,
+              0.30074615384615383,
+              0.3415384615384615,
+              0.3823307692307692,
+              0.4231230769230769,
+              0.46391538461538456,
+              0.5047076923076923,
+              0.5455
+            ],
+            "y": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              20,
+              5,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.303,
+              0.30906,
+              0.31512,
+              0.32117999999999997,
+              0.32724,
+              0.3333,
+              0.33936,
+              0.34542,
+              0.35147999999999996,
+              0.35753999999999997,
+              0.3636
+            ],
+            "y": [
+              19.80198019801977,
+              0.0,
+              46.20462046204655,
+              0.0,
+              0.0,
+              66.0066006600659,
+              0.0,
+              13.2013201320133,
+              0.0,
+              19.80198019801977
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0152,
+              0.05599230769230769,
+              0.09678461538461539,
+              0.13757692307692307,
+              0.17836923076923075,
+              0.21916153846153844,
+              0.25995384615384615,
+              0.30074615384615383,
+              0.3415384615384615,
+              0.3823307692307692,
+              0.4231230769230769,
+              0.46391538461538456,
+              0.5047076923076923,
+              0.5455
+            ],
+            "y": [
+              7,
+              7,
+              46,
+              59,
+              100,
+              139,
+              59,
+              97,
+              32,
+              40,
+              64,
+              15,
+              4
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0152,
+              0.06823,
+              0.12126,
+              0.17429,
+              0.22732,
+              0.28035,
+              0.33338,
+              0.38641,
+              0.43944,
+              0.49247,
+              0.5455
+            ],
+            "y": [
+              0.28187220647026373,
+              0.7328677368226856,
+              2.3395393137031895,
+              4.679078627406379,
+              3.0442198298788488,
+              3.41065369829019,
+              0.9019910607048446,
+              2.4241009756442673,
+              0.8456166194107908,
+              0.19731054452918473
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 0.303,
+                "1": 0.3333,
+                "2": 0.3182,
+                "3": 0.3333,
+                "4": 0.3182,
+                "5": 0.3333,
+                "6": 0.3182,
+                "7": 0.303,
+                "8": 0.3182,
+                "9": 0.303,
+                "10": 0.3333,
+                "11": 0.3333,
+                "12": 0.3333,
+                "13": 0.3182,
+                "14": 0.3182,
+                "15": 0.3636,
+                "16": 0.3636,
+                "17": 0.3636,
+                "18": 0.3333,
+                "19": 0.3182,
+                "20": 0.3333,
+                "21": 0.3485,
+                "22": 0.3485,
+                "23": 0.3333,
+                "24": 0.3333
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 0.1696027770750576,
+            "y1": 0.37371800020446405
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "hr",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 0.9999999999909155,
+        "drift_detected": false,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              2.090909090909091,
+              4.181818181818182,
+              6.2727272727272725,
+              8.363636363636363,
+              10.454545454545453,
+              12.545454545454545,
+              14.636363636363637,
+              16.727272727272727,
+              18.818181818181817,
+              20.909090909090907,
+              23.0
+            ],
+            "y": [
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0,
+              2.3,
+              4.6,
+              6.8999999999999995,
+              9.2,
+              11.5,
+              13.799999999999999,
+              16.099999999999998,
+              18.4,
+              20.7,
+              23.0
+            ],
+            "y": [
+              0.06956521739130435,
+              0.034782608695652174,
+              0.034782608695652174,
+              0.052173913043478265,
+              0.03478260869565217,
+              0.03478260869565219,
+              0.052173913043478286,
+              0.03478260869565217,
+              0.03478260869565217,
+              0.052173913043478244
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              2.090909090909091,
+              4.181818181818182,
+              6.2727272727272725,
+              8.363636363636363,
+              10.454545454545453,
+              12.545454545454545,
+              14.636363636363637,
+              16.727272727272727,
+              18.818181818181817,
+              20.909090909090907,
+              23.0
+            ],
+            "y": [
+              84,
+              53,
+              56,
+              56,
+              56,
+              56,
+              56,
+              56,
+              56,
+              56,
+              84
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0,
+              2.3,
+              4.6,
+              6.8999999999999995,
+              9.2,
+              11.5,
+              13.799999999999999,
+              16.099999999999998,
+              18.4,
+              20.7,
+              23.0
+            ],
+            "y": [
+              0.054591538311561716,
+              0.03444466107753298,
+              0.03639435887437448,
+              0.054591538311561716,
+              0.036394358874374456,
+              0.03639435887437449,
+              0.05459153831156174,
+              0.036394358874374456,
+              0.036394358874374456,
+              0.054591538311561695
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 2.0,
+                "3": 3.0,
+                "4": 4.0,
+                "5": 5.0,
+                "6": 6.0,
+                "7": 7.0,
+                "8": 8.0,
+                "9": 9.0,
+                "10": 10.0,
+                "11": 11.0,
+                "12": 12.0,
+                "13": 13.0,
+                "14": 14.0,
+                "15": 15.0,
+                "16": 16.0,
+                "17": 17.0,
+                "18": 18.0,
+                "19": 19.0,
+                "20": 20.0,
+                "21": 21.0,
+                "22": 22.0,
+                "23": 23.0,
+                "24": 0.0
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 4.618747999569198,
+            "y1": 18.457485184287304
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "hum",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 4.426367127277614e-08,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.25,
+              0.3125,
+              0.375,
+              0.4375,
+              0.5,
+              0.5625,
+              0.625,
+              0.6875,
+              0.75,
+              0.8125,
+              0.875,
+              0.9375,
+              1.0
+            ],
+            "y": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              12,
+              7,
+              5,
+              0,
+              0
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.61,
+              0.636,
+              0.662,
+              0.688,
+              0.714,
+              0.74,
+              0.766,
+              0.792,
+              0.8180000000000001,
+              0.844,
+              0.87
+            ],
+            "y": [
+              1.538461538461537,
+              0.0,
+              0.0,
+              18.461538461538446,
+              0.0,
+              3.076923076923074,
+              0.0,
+              7.692307692307686,
+              0.0,
+              7.692307692307686
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.25,
+              0.3125,
+              0.375,
+              0.4375,
+              0.5,
+              0.5625,
+              0.625,
+              0.6875,
+              0.75,
+              0.8125,
+              0.875,
+              0.9375,
+              1.0
+            ],
+            "y": [
+              14,
+              66,
+              74,
+              86,
+              92,
+              42,
+              31,
+              51,
+              91,
+              57,
+              49,
+              16
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.25,
+              0.325,
+              0.4,
+              0.475,
+              0.55,
+              0.625,
+              0.7,
+              0.775,
+              0.85,
+              0.9249999999999999,
+              1.0
+            ],
+            "y": [
+              0.3986048829098156,
+              1.634280019930244,
+              2.3517688091679134,
+              1.853512705530641,
+              1.2157448928749384,
+              0.7573492775286502,
+              1.6741405082212244,
+              1.1160936721474843,
+              1.1160936721474843,
+              1.2157448928749366
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 0.7,
+                "1": 0.7,
+                "2": 0.7,
+                "3": 0.61,
+                "4": 0.7,
+                "5": 0.7,
+                "6": 0.7,
+                "7": 0.7,
+                "8": 0.7,
+                "9": 0.7,
+                "10": 0.7,
+                "11": 0.7,
+                "12": 0.76,
+                "13": 0.71,
+                "14": 0.81,
+                "15": 0.76,
+                "16": 0.81,
+                "17": 0.87,
+                "18": 0.87,
+                "19": 0.87,
+                "20": 0.87,
+                "21": 0.81,
+                "22": 0.81,
+                "23": 0.81,
+                "24": 0.87
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 0.4131766588936634,
+            "y1": 0.806883131838773
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "temp",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 8.770831290674952e-09,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.02,
+              0.06307692307692307,
+              0.10615384615384615,
+              0.14923076923076922,
+              0.1923076923076923,
+              0.23538461538461536,
+              0.2784615384615385,
+              0.32153846153846155,
+              0.3646153846153846,
+              0.4076923076923077,
+              0.45076923076923076,
+              0.4938461538461538,
+              0.536923076923077,
+              0.58
+            ],
+            "y": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              19,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.3,
+              0.304,
+              0.308,
+              0.312,
+              0.316,
+              0.32,
+              0.324,
+              0.328,
+              0.332,
+              0.336,
+              0.34
+            ],
+            "y": [
+              109.99999999999991,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              79.99999999999993,
+              0.0,
+              0.0,
+              0.0,
+              59.99999999999994
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.02,
+              0.06307692307692307,
+              0.10615384615384615,
+              0.14923076923076922,
+              0.1923076923076923,
+              0.23538461538461536,
+              0.2784615384615385,
+              0.32153846153846155,
+              0.3646153846153846,
+              0.4076923076923077,
+              0.45076923076923076,
+              0.4938461538461538,
+              0.536923076923077,
+              0.58
+            ],
+            "y": [
+              10,
+              10,
+              43,
+              88,
+              116,
+              108,
+              104,
+              67,
+              40,
+              46,
+              22,
+              11,
+              4
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.02,
+              0.076,
+              0.13199999999999998,
+              0.18799999999999997,
+              0.24399999999999997,
+              0.3,
+              0.356,
+              0.412,
+              0.46799999999999997,
+              0.524,
+              0.58
+            ],
+            "y": [
+              0.266922912662823,
+              0.69399957292334,
+              3.0696134956224648,
+              4.270766602605168,
+              2.4023062139654057,
+              3.1763826606875933,
+              1.7616912235746318,
+              1.708306641042067,
+              0.4003843689942341,
+              0.1067691650651293
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 0.3,
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.3,
+                "4": 0.3,
+                "5": 0.3,
+                "6": 0.3,
+                "7": 0.3,
+                "8": 0.3,
+                "9": 0.3,
+                "10": 0.32,
+                "11": 0.32,
+                "12": 0.32,
+                "13": 0.34,
+                "14": 0.32,
+                "15": 0.34,
+                "16": 0.34,
+                "17": 0.34,
+                "18": 0.34,
+                "19": 0.32,
+                "20": 0.32,
+                "21": 0.34,
+                "22": 0.32,
+                "23": 0.32,
+                "24": 0.3
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 0.16691025416278382,
+            "y1": 0.3747339909792192
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "weekday",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 6.677442770563911e-08,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              0.5,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              3.5,
+              4.0,
+              4.5,
+              5.0,
+              5.5,
+              6.0
+            ],
+            "y": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              24,
+              0,
+              1,
+              0
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              4.0,
+              4.1,
+              4.2,
+              4.3,
+              4.4,
+              4.5,
+              4.6,
+              4.7,
+              4.8,
+              4.9,
+              5.0
+            ],
+            "y": [
+              9.600000000000033,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.4000000000000014
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              0.5,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              3.5,
+              4.0,
+              4.5,
+              5.0,
+              5.5,
+              6.0
+            ],
+            "y": [
+              96,
+              0,
+              95,
+              0,
+              94,
+              0,
+              96,
+              0,
+              96,
+              0,
+              96,
+              96
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0,
+              0.6,
+              1.2,
+              1.7999999999999998,
+              2.4,
+              3.0,
+              3.5999999999999996,
+              4.2,
+              4.8,
+              5.3999999999999995,
+              6.0
+            ],
+            "y": [
+              0.23916292974588937,
+              0.23667164922770306,
+              0.0,
+              0.23418036870951667,
+              0.0,
+              0.2391629297458895,
+              0.23916292974588918,
+              0.0,
+              0.2391629297458895,
+              0.23916292974588918
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 4.0,
+                "1": 4.0,
+                "2": 4.0,
+                "3": 4.0,
+                "4": 4.0,
+                "5": 4.0,
+                "6": 4.0,
+                "7": 4.0,
+                "8": 4.0,
+                "9": 4.0,
+                "10": 4.0,
+                "11": 4.0,
+                "12": 4.0,
+                "13": 4.0,
+                "14": 4.0,
+                "15": 4.0,
+                "16": 4.0,
+                "17": 4.0,
+                "18": 4.0,
+                "19": 4.0,
+                "20": 4.0,
+                "21": 4.0,
+                "22": 4.0,
+                "23": 4.0,
+                "24": 5.0
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 1.0022489873671971,
+            "y1": 5.0097091591200975
+          }
+        }
+      },
+      {
+        "type": "evidently.calculations.data_drift.ColumnDataDriftMetrics",
+        "column_name": "windspeed",
+        "column_type": "num",
+        "stattest_name": "K-S p_value",
+        "stattest_threshold": 0.05,
+        "drift_score": 1.1967694761726356e-05,
+        "drift_detected": true,
+        "current": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              0.046907142857142856,
+              0.09381428571428571,
+              0.14072142857142855,
+              0.18762857142857142,
+              0.2345357142857143,
+              0.2814428571428571,
+              0.32835,
+              0.37525714285714284,
+              0.4221642857142857,
+              0.4690714285714286,
+              0.5159785714285714,
+              0.5628857142857142,
+              0.6097928571428571,
+              0.6567
+            ],
+            "y": [
+              8,
+              6,
+              7,
+              2,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0,
+              0.025369999999999997,
+              0.05073999999999999,
+              0.07610999999999998,
+              0.10147999999999999,
+              0.12685,
+              0.15221999999999997,
+              0.17758999999999997,
+              0.20295999999999997,
+              0.22832999999999998,
+              0.2537
+            ],
+            "y": [
+              12.613322822230982,
+              0.0,
+              0.0,
+              9.459992116673234,
+              3.153330705557745,
+              7.883326763894371,
+              3.153330705557745,
+              1.5766653527788725,
+              0.0,
+              1.5766653527788725
+            ]
+          },
+          "correlations": null
+        },
+        "reference": {
+          "type": "evidently.calculations.data_drift.DriftStatsField",
+          "distribution": {
+            "type": "evidently.metric_results.Distribution",
+            "x": [
+              0.0,
+              0.046907142857142856,
+              0.09381428571428571,
+              0.14072142857142855,
+              0.18762857142857142,
+              0.2345357142857143,
+              0.2814428571428571,
+              0.32835,
+              0.37525714285714284,
+              0.4221642857142857,
+              0.4690714285714286,
+              0.5159785714285714,
+              0.5628857142857142,
+              0.6097928571428571,
+              0.6567
+            ],
+            "y": [
+              60,
+              57,
+              123,
+              55,
+              99,
+              52,
+              92,
+              48,
+              36,
+              16,
+              9,
+              17,
+              3,
+              2
+            ]
+          },
+          "characteristic_examples": null,
+          "characteristic_words": null,
+          "small_distribution": {
+            "type": "evidently.metric_results.DistributionIncluded",
+            "x": [
+              0.0,
+              0.06566999999999999,
+              0.13133999999999998,
+              0.19700999999999996,
+              0.26267999999999997,
+              0.32835,
+              0.3940199999999999,
+              0.45968999999999993,
+              0.5253599999999999,
+              0.5910299999999999,
+              0.6567
+            ],
+            "y": [
+              1.365708826781004,
+              2.8679885362401083,
+              3.641890204749345,
+              2.2761813779683395,
+              2.0940868677308724,
+              1.6160887783575222,
+              0.4779980893733513,
+              0.637330785831135,
+              0.20485632401715057,
+              0.04552362755936679
+            ]
+          },
+          "correlations": null
+        },
+        "scatter": {
+          "type": "evidently.metric_results.ScatterAggField",
+          "scatter": {
+            "current (mean)": {
+              "per": {
+                "0": "2023-02-16T00:00:00",
+                "1": "2023-02-16T01:00:00",
+                "2": "2023-02-16T02:00:00",
+                "3": "2023-02-16T03:00:00",
+                "4": "2023-02-16T04:00:00",
+                "5": "2023-02-16T05:00:00",
+                "6": "2023-02-16T06:00:00",
+                "7": "2023-02-16T07:00:00",
+                "8": "2023-02-16T08:00:00",
+                "9": "2023-02-16T09:00:00",
+                "10": "2023-02-16T10:00:00",
+                "11": "2023-02-16T11:00:00",
+                "12": "2023-02-16T12:00:00",
+                "13": "2023-02-16T13:00:00",
+                "14": "2023-02-16T14:00:00",
+                "15": "2023-02-16T15:00:00",
+                "16": "2023-02-16T16:00:00",
+                "17": "2023-02-16T17:00:00",
+                "18": "2023-02-16T18:00:00",
+                "19": "2023-02-16T19:00:00",
+                "20": "2023-02-16T20:00:00",
+                "21": "2023-02-16T21:00:00",
+                "22": "2023-02-16T22:00:00",
+                "23": "2023-02-16T23:00:00",
+                "24": "2023-02-17T00:00:00"
+              },
+              "mean": {
+                "0": 0.1343,
+                "1": 0.0,
+                "2": 0.0896,
+                "3": 0.0,
+                "4": 0.0896,
+                "5": 0.0,
+                "6": 0.0896,
+                "7": 0.1343,
+                "8": 0.0896,
+                "9": 0.1642,
+                "10": 0.1343,
+                "11": 0.1045,
+                "12": 0.0896,
+                "13": 0.2537,
+                "14": 0.194,
+                "15": 0.0,
+                "16": 0.0,
+                "17": 0.0,
+                "18": 0.1343,
+                "19": 0.1642,
+                "20": 0.1343,
+                "21": 0.1045,
+                "22": 0.0,
+                "23": 0.0896,
+                "24": 0.0
+              },
+              "std": {
+                "0": NaN,
+                "1": NaN,
+                "2": NaN,
+                "3": NaN,
+                "4": NaN,
+                "5": NaN,
+                "6": NaN,
+                "7": NaN,
+                "8": NaN,
+                "9": NaN,
+                "10": NaN,
+                "11": NaN,
+                "12": NaN,
+                "13": NaN,
+                "14": NaN,
+                "15": NaN,
+                "16": NaN,
+                "17": NaN,
+                "18": NaN,
+                "19": NaN,
+                "20": NaN,
+                "21": NaN,
+                "22": NaN,
+                "23": NaN,
+                "24": NaN
+              }
+            }
+          },
+          "x_name": "Timestamp (hour)",
+          "plot_shape": {
+            "y0": 0.08219959826064213,
+            "y1": 0.3467893404538571
+          }
+        }
+      }
+    ],
+    "tests": [
+      {
+        "lt": 0.3,
+        "type": "evidently.tests.data_drift_tests.TestShareOfDriftedColumns",
+        "is_critical": true
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "cnt",
+          "display_name": "cnt",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "prediction",
+          "display_name": "prediction",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "season",
+          "display_name": "season",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "holiday",
+          "display_name": "holiday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "workingday",
+          "display_name": "workingday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "atemp",
+          "display_name": "atemp",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "hr",
+          "display_name": "hr",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "hum",
+          "display_name": "hum",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "temp",
+          "display_name": "temp",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "weekday",
+          "display_name": "weekday",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      },
+      {
+        "type": "evidently.tests.data_drift_tests.TestColumnDrift",
+        "is_critical": true,
+        "column_name": {
+          "type": "evidently.base_metric.ColumnName",
+          "name": "windspeed",
+          "display_name": "windspeed",
+          "dataset": "main",
+          "feature_class": null
+        },
+        "stattest": null,
+        "stattest_threshold": null
+      }
+    ],
+    "test_results": [
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Share of Drifted Columns",
+        "description": "The drift is detected for 54.5% features (6 out of 11). The test threshold is lt=0.3",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnsDriftParameters",
+          "condition": {
+            "lt": 0.3
+          },
+          "features": {
+            "cnt": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.508,
+              "threshold": 0.05,
+              "detected": false
+            },
+            "prediction": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.365,
+              "threshold": 0.05,
+              "detected": false
+            },
+            "atemp": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            },
+            "hr": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 1.0,
+              "threshold": 0.05,
+              "detected": false
+            },
+            "hum": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            },
+            "temp": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            },
+            "weekday": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            },
+            "windspeed": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "K-S p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            },
+            "season": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "Z-test p_value",
+              "score": 1.0,
+              "threshold": 0.05,
+              "detected": false
+            },
+            "holiday": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "Z-test p_value",
+              "score": 0.17,
+              "threshold": 0.05,
+              "detected": false
+            },
+            "workingday": {
+              "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+              "stattest": "Z-test p_value",
+              "score": 0.0,
+              "threshold": 0.05,
+              "detected": true
+            }
+          }
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **cnt** is 0.508. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "SUCCESS",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.508,
+          "threshold": 0.05,
+          "detected": false,
+          "column_name": "cnt"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **prediction** is 0.365. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "SUCCESS",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.365,
+          "threshold": 0.05,
+          "detected": false,
+          "column_name": "prediction"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **season** is 1. The drift detection method is Z-test p_value. The drift detection threshold is 0.05.",
+        "status": "SUCCESS",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "Z-test p_value",
+          "score": 1.0,
+          "threshold": 0.05,
+          "detected": false,
+          "column_name": "season"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **holiday** is 0.17. The drift detection method is Z-test p_value. The drift detection threshold is 0.05.",
+        "status": "SUCCESS",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "Z-test p_value",
+          "score": 0.17,
+          "threshold": 0.05,
+          "detected": false,
+          "column_name": "holiday"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **workingday** is 0. The drift detection method is Z-test p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "Z-test p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "workingday"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **atemp** is 0. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "atemp"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **hr** is 1. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "SUCCESS",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 1.0,
+          "threshold": 0.05,
+          "detected": false,
+          "column_name": "hr"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **hum** is 0. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "hum"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **temp** is 0. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "temp"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **weekday** is 0. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "weekday"
+        }
+      },
+      {
+        "type": "evidently.tests.base_test.TestResult",
+        "name": "Drift per Column",
+        "description": "The drift score for the feature **windspeed** is 0. The drift detection method is K-S p_value. The drift detection threshold is 0.05.",
+        "status": "FAIL",
+        "group": "data_drift",
+        "parameters": {
+          "type": "evidently.tests.data_drift_tests.ColumnDriftParameter",
+          "stattest": "K-S p_value",
+          "score": 0.0,
+          "threshold": 0.05,
+          "detected": true,
+          "column_name": "windspeed"
+        }
+      }
+    ],
+    "options": {
+      "color": null,
+      "render": null,
+      "custom": {}
+    }
+  },
+  "metrics_ids": [],
+  "test_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "options": {
+    "color": null,
+    "render": null,
+    "custom": {}
+  }
+}
