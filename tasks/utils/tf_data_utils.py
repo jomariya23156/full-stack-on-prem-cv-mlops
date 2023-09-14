@@ -49,8 +49,11 @@ def build_data_pipeline(annot_df: pd.DataFrame, classes: List[str], split: str, 
     label = df[classes]
     
     pipeline = tf.data.Dataset.from_tensor_slices((path, label))
-    pipeline = pipeline.map(lambda path, label: load_data(path, label, target_size=img_size), 
+    pipeline = (pipeline
+                .shuffle(len(df))
+                .map(lambda path, label: load_data(path, label, target_size=img_size), 
                                                           num_parallel_calls=AUTOTUNE)
+               )
                             
     if do_augment and augmenter:
         pipeline = pipeline.map(lambda x,y: augment(x, y, augmenter), num_parallel_calls=AUTOTUNE)

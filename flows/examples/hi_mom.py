@@ -8,4 +8,5 @@ def say_hello():
 def marvin_flow():
     say_hello()
 
-marvin_flow()
+if __name__ == '__main__':
+    marvin_flow()

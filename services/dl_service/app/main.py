@@ -12,7 +12,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Dict
 from utils import (GradCAM, tf_load_model, array_to_encoded_str, process_heatmap, 
-                   prepare_db, commit_results_to_db, commit_only_api_log_to_db)
+                   prepare_db, load_drift_detectors, commit_results_to_db, commit_only_api_log_to_db)
 
 # define Pydantic models for type validation
 class Message(BaseModel):
@@ -37,8 +37,12 @@ logger.addHandler(ch)
 app = FastAPI()
 
 # init model to None
-model = None
+model: tf.keras.models.Model = None
 model_meta = None
+
+# init drift detector models to None too
+uae: tf.keras.models.Model = None
+bbsd: tf.keras.models.Model = None
 
 # prepare database
 prepare_db()
@@ -47,10 +51,14 @@ prepare_db()
 def update_model(request: Request, model_metadata_file_path: str, background_tasks: BackgroundTasks):
     global model
     global model_meta
+    global uae
+    global bbsd
     start_time = time.time()
     logger.info('Updating model')
     try:
+        # prepare drift detectors along with the model here
         model, model_meta = tf_load_model(model_metadata_file_path)
+        uae, bbsd = load_drift_detectors(model_metadata_file_path)
     except Exception as e:
         logger.error(f'Loading model failed with exception:\n {e}')
         time_spent = round(time.time() - start_time, 4)
@@ -105,6 +113,20 @@ async def predict(request: Request, file: UploadFile, background_tasks: Backgrou
     pred_idx = np.argmax(pred)
     logger.info('Obtained prediction')
 
+    logger.info('Extracting features with drift detectors')
+    # by default postgresql store array in 'double precision' which is equivalent to float64
+    uae_feats = uae.predict(image)[0].astype(np.float64)
+    # if bbsd's already used the last layer meaning it has the same output as our main classifier
+    # so there is no need to predict again.
+    if model_meta['drift_detection']['bbsd_layer_idx'] in (-1, len(model.layers)):
+        bbsd_feats = pred.copy().astype(np.float64)
+    else:
+        bbsd_feats = bbsd.predict(image)[0].astype(np.float64)
+    logger.info('Extracted features')
+
+    logger.debug(f'Type UAE: {type(uae_feats)} | value: {uae_feats}')
+    logger.debug(f'Type BBSD: {type(bbsd_feats)} | value: {bbsd_feats}')
+
     # create heatmap (gradcam)
     logger.info('Computing heatmap')
     try:
@@ -137,6 +159,7 @@ async def predict(request: Request, file: UploadFile, background_tasks: Backgrou
     resp_code = 200
     resp_message = "Success"
     background_tasks.add_task(commit_results_to_db, request, resp_code, resp_message, time_spent,
-                              model_meta['model_name'], ori_img_str, raw_hm_str, overlaid_str, pred_dict)
+                              model_meta['model_name'], ori_img_str, raw_hm_str, overlaid_str, pred_dict,
+                              uae_feats, bbsd_feats)
     
     return {'model_name': model_meta['model_name'], 'prediction': pred_dict, 'overlaid_img': overlaid_str, 'raw_hm_img': raw_hm_str, 'message': resp_message}

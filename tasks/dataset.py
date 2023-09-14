@@ -5,6 +5,22 @@ from typing import List
 from dvc.repo import Repo
 from git import Git, GitCommandError
 from prefect import task, get_run_logger
+from deepchecks.vision import classification_dataset_from_directory
+from deepchecks.vision.suites import train_test_validation
+
+@task(name='validate_data', log_prints=True)
+def validate_data(ds_repo_path: str, save_path: str = 'ds_val.html', img_ext: str = 'jpeg'):
+    logger = get_run_logger()
+    train_ds, test_ds = classification_dataset_from_directory(
+        root=os.path.join(ds_repo_path, 'images'), object_type='VisionData',
+        image_extension=img_ext
+    )
+    suite = train_test_validation()
+    logger.info("Running data validation test sute")
+    result = suite.run(train_ds, test_ds)
+    result.save_as_html(save_path)
+    logger.info(f'Finish data validation and save report to {save_path}')
+    logger.info("This file will also be saved along with the MLflow's training task in the later step")
 
 @task(name='prepare_dvc_dataset')
 def prepare_dataset(ds_root: str, ds_name: str, dvc_tag: str, dvc_checkout: bool = True):

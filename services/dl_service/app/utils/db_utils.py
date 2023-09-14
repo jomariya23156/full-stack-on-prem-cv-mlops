@@ -3,6 +3,7 @@ import json
 import logging
 import fastapi
 import sqlalchemy
+import numpy as np
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
@@ -22,12 +23,6 @@ def prepare_db() -> None:
     logger.info("Preparing database")
     engine = create_engine(DB_CONNECTION_URL)
     Base.metadata.create_all(engine)
-    # for db_table in required_db_tables:
-    #     if not sqlalchemy.inspect(engine).has_table(db_table):
-    #         Base.metadata.create_all(engine)
-    #         logger.info(f"Table: {db_table} does not exist. Created a new one.")
-    #     else:
-    #         logger.info(f"Table: {db_table} already exists. Use the existing one.")
     logger.info("Database is ready.")
 
 def open_db_session(engine: sqlalchemy.engine) -> sqlalchemy.orm.Session:
@@ -51,12 +46,16 @@ def commit_only_api_log_to_db(request_obj: fastapi.Request, resp_code: int, resp
     session.close()
 
 def commit_results_to_db(request_obj: fastapi.Request, resp_code: int, resp_message: str, timespan: float,
-                         model_name: str, input_img: str, raw_hm_img: str, overlaid_img: str, pred_json: dict) -> None:
+                         model_name: str, input_img: str, raw_hm_img: str, overlaid_img: str, pred_json: dict,
+                         uae_feats: np.ndarray, bbsd_feats: np.ndarray) -> None:
     engine = create_engine(DB_CONNECTION_URL)
     session = open_db_session(engine)
     json_str = json.dumps(pred_json)
+    logger.debug(f'Type UAE: {type(uae_feats)}')
+    logger.debug(f'Type BBSD: {type(bbsd_feats)}')
     prediction_record = PredictionsTable(model_name=model_name, input_img=input_img, raw_hm_img=raw_hm_img, 
-                                         overlaid_img=overlaid_img, prediction_json=json_str)
+                                         overlaid_img=overlaid_img, prediction_json=json_str, uae_feats=uae_feats,
+                                         bbsd_feats=bbsd_feats)
     api_log_record = create_api_log_entry(request_obj, resp_code, resp_message, timespan, prediction=prediction_record)
     session.add(api_log_record)
     session.commit()

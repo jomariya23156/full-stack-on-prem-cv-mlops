@@ -25,6 +25,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         sudo \
         npm \
         libgl1 \ 
+        # for DeepChecks
+        libxml2-dev \
+        libxslt-dev \
         # required for prefect
         tzdata \
         # lib for opencv
@@ -41,7 +44,7 @@ ARG CONDA_DIR=$CONDA_DIR
 ARG ARCH=$ARCH
 ARG JUPYTER_PORT=$JUPYTER_PORT
 ARG MLFLOW_ARTIFACT_ROOT=$MLFLOW_ARTIFACT_ROOT
-ARG CENTRAL_MODEL_STORAGE_PATH=$CENTRAL_MODEL_STORAGE_PATH
+ARG CENTRAL_STORAGE_PATH=$CENTRAL_STORAGE_PATH
 
 # Add a new user and assign sudo privilege
 RUN useradd --create-home --shell /bin/bash $NB_USER && \
@@ -63,9 +66,9 @@ RUN mkdir -p $MLFLOW_ARTIFACT_ROOT && \
     chmod -R go+rX $MLFLOW_ARTIFACT_ROOT
 
 # for model storage too!
-RUN mkdir -p $CENTRAL_MODEL_STORAGE_PATH && \
-    chown -R $NB_USER:$NB_USER $CENTRAL_MODEL_STORAGE_PATH && \
-    chmod -R go+rX $CENTRAL_MODEL_STORAGE_PATH
+RUN mkdir -p $CENTRAL_STORAGE_PATH/models $CENTRAL_STORAGE_PATH/ref_data && \
+    chown -R $NB_USER:$NB_USER $CENTRAL_STORAGE_PATH && \
+    chmod -R go+rX $CENTRAL_STORAGE_PATH
 
 # Config permission user
 USER $NB_USER

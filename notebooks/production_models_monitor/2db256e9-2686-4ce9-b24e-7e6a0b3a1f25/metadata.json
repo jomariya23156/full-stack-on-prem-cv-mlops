@@ -1,0 +1,127 @@
+{
+  "id": "2db256e9-2686-4ce9-b24e-7e6a0b3a1f25",
+  "name": "animals10_monitor",
+  "description": "Try Evidently",
+  "dashboard": {
+    "name": "animals10_monitor",
+    "panels": [
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Production Model Monitor!",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Production Data Quality",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Number of conflicts in Prediction",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "current.number_not_stable_prediction",
+          "metric_id": "ConflictPredictionMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": null
+        },
+        "text": "count"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Number of conflicts in Target (GT)",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "number_not_stable_target",
+          "metric_id": "ConflictTargetMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": null
+        },
+        "text": "count"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Drift Detection",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Drift Score Metric #1",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "drift_score",
+          "metric_id": "EmbeddingsDriftMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": "score"
+        },
+        "text": "latest"
+      },
+      {
+        "type": "evidently.ui.dashboards.DashboardPanelCounter",
+        "id": "4b2caf6d-b896-4da6-86a2-afbf99a1a00f",
+        "title": "Drift Score Metric #2",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": []
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "drift_score",
+          "metric_id": "EmbeddingsDriftMetric",
+          "metric_hash": null,
+          "metric_args": {},
+          "legend": "score"
+        },
+        "text": "latest"
+      }
+    ]
+  },
+  "date_from": null,
+  "date_to": null
+}

@@ -16,13 +16,17 @@ services:
                 ARCH: aarch64 # aarch64 for Mac with Apple's chip | x86_64 for others (mostly)
                 JUPYTER_PORT: ${JUPYTER_PORT}
                 MLFLOW_ARTIFACT_ROOT: ${MLFLOW_ARTIFACT_ROOT}
-                CENTRAL_MODEL_STORAGE_PATH: /home/${JUPYTER_USER}/central_model_storage
+                CENTRAL_STORAGE_PATH: /home/${JUPYTER_USER}/central_storage
         env_file:
             - .env
         environment:
             - MLFLOW_TRACKING_URI=http://mlflow:${MLFLOW_PORT}
             - PREFECT_API_URL=http://prefect:${PREFECT_PORT}/api
-            - CENTRAL_MODEL_STORAGE_PATH=/home/${JUPYTER_USER}/central_model_storage
+            - CENTRAL_STORAGE_PATH=/home/${JUPYTER_USER}/central_storage
+            # for dev
+            - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
+            - DB_PREDICTION_TABLE_NAME=predictions
+            - DB_API_LOG_TABLE_NAME=api_log
         networks:
             - mlops_network
         ports: 
@@ -31,7 +35,7 @@ services:
         volumes:
             - ./:/home/${JUPYTER_USER}/workspace/
             - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
-            - central_model_storage:/home/${JUPYTER_USER}/central_model_storage
+            - central_storage:/home/${JUPYTER_USER}/central_storage
         depends_on:
             - mlflow
             - prefect
@@ -92,14 +96,14 @@ services:
         env_file:
             - .env
         environment:
-            - CENTRAL_MODEL_STORAGE_PATH=/service/central_model_storage
+            - CENTRAL_STORAGE_PATH=/service/central_storage
             - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
             - DB_PREDICTION_TABLE_NAME=predictions
             - DB_API_LOG_TABLE_NAME=api_log
         networks:
             - mlops_network
         volumes:
-            - central_model_storage:/service/central_model_storage
+            - central_storage:/service/central_storage
             - ./services/dl_service/app/:/service/app/
 
     web_ui:
@@ -153,7 +157,7 @@ services:
             - "${POSTGRES_PORT}:5432"
         volumes:
             - ./services/postgres/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
-            - pgdata_new:/var/lib/postgresql/data
+            - pgdata:/var/lib/postgresql/data
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U postgres"]
             interval: 5s
@@ -172,6 +176,8 @@ services:
             - mlops_network
         ports:
             - "16543:80"
+        volumes:
+            - pgadmin_db:/var/lib/pgadmin
         depends_on:
             postgres:
                 condition: service_healthy
@@ -183,5 +189,6 @@ networks:
 volumes:
     mlflow_db:
     prefect_db:
-    pgdata_new:
-    central_model_storage:
+    pgadmin_db:
+    pgdata:
+    central_storage:

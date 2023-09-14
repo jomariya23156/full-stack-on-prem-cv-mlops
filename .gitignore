@@ -1,5 +1,6 @@
 .DS_Store
-models/animals10_classifier/
+models/*
+!models/*.yaml
 remote_ds_example/animals10-dvc
 remote_ds_example/animals10-dvc.zip
 

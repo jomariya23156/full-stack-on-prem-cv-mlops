@@ -1,0 +1,18 @@
+classes:
+- butterfly
+- cat
+- chicken
+- cow
+- dog
+- elephant
+- horse
+- sheep
+- spider
+- squirrel
+classification_layer: classify_head
+classifier_activation: softmax
+classifier_type: multi-class
+input_size:
+  h: 100
+  w: 100
+model_name: animals10_classifier_100px

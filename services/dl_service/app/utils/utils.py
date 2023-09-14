@@ -4,18 +4,20 @@ import base64
 import logging
 import yaml
 import numpy as np
+import tensorflow as tf
 from PIL import Image
 from io import BytesIO
-from tensorflow.keras.models import load_model
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, InputLayer
+from tensorflow.keras.models import load_model, Model
 
-CENTRAL_MODEL_STORAGE_PATH = os.getenv("CENTRAL_MODEL_STORAGE_PATH", "/home/ariya/central_model_storage")
+CENTRAL_STORAGE_PATH = os.getenv("CENTRAL_STORAGE_PATH", "/home/ariya/central_model_storage")
 
 logger = logging.getLogger('main')
 
 # best practice is to retrieve the model & config from a model registry service
-# and this fn will implement the logic to download files to local storage and read them
+# and this function will implement the logic to download files to local storage and read them
 def retrieve_metadata_file(model_metadata_file_path: str):
-    model_meta_path = os.path.join(CENTRAL_MODEL_STORAGE_PATH, model_metadata_file_path)
+    model_meta_path = os.path.join(CENTRAL_STORAGE_PATH, 'models', model_metadata_file_path)
     logger.info(f'Loading the model metadata from {model_meta_path}')
     with open(model_meta_path, 'r') as f:
         metadata = yaml.safe_load(f)
@@ -23,11 +25,24 @@ def retrieve_metadata_file(model_metadata_file_path: str):
     
 def tf_load_model(model_metadata_file_path: str):
     metadata = retrieve_metadata_file(model_metadata_file_path)
-    model_dir = os.path.join(CENTRAL_MODEL_STORAGE_PATH, metadata['model_name'])
+    model_dir = os.path.join(CENTRAL_STORAGE_PATH, 'models', metadata['model_name'])
     logger.info(f'Loading the model from {model_dir}')
     model = load_model(model_dir)
     logger.info('Loaded successfully')
     return model, metadata
+
+def load_drift_detectors(model_metadata_file_path: str):
+    metadata = retrieve_metadata_file(model_metadata_file_path)
+    drift_cfg = metadata['drift_detection']
+    uae_dir = os.path.join(CENTRAL_STORAGE_PATH, 'models', metadata['model_name'] + drift_cfg['uae_model_suffix'])
+    bbsd_dir = os.path.join(CENTRAL_STORAGE_PATH, 'models', metadata['model_name'] + drift_cfg['uae_model_suffix'])
+    logger.info(f'Loading the UAE model from {uae_dir}')
+    uae = load_model(uae_dir)
+    logger.info('Loaded UAE model successfully')
+    logger.info(f'Loading the BBSD model from {bbsd_dir}')
+    bbsd = load_model(bbsd_dir)
+    logger.info('Loaded BBSD model successfully')
+    return uae, bbsd
 
 def array_to_encoded_str(image: np.ndarray):
     pil_img = Image.fromarray(cv2.cvtColor(image,cv2.COLOR_BGR2RGB))

@@ -32,21 +32,18 @@ def build_model_metadata(model_cfg):
     return metadata
 
 @task(name='upload_model')
-def upload_model(model_dir: str, dst_dir: str):
+def upload_model(model_dir: str, remote_dir: str):
     # this is the step you should replace with uploading the file
     # to a cloud storage if you want to deploy on cloud
     logger = get_run_logger()
     model_name = os.path.split(model_dir)[-1]
     metadata_file_name = model_name+'.yaml'
     metadata_file_path = model_dir+'.yaml'
-    shutil.copy2(metadata_file_path, dst_dir)
+    shutil.copy2(metadata_file_path, remote_dir)
     
-    model_save_dir = os.path.join(dst_dir, model_name)
-    # if not os.path.exists(model_save_dir):
-    #     logger.info(f'model_save_dir {model_save_dir} does not exist. Created.')
-    #     os.makedirs(model_save_dir)
+    model_save_dir = os.path.join(remote_dir, model_name)
     shutil.copytree(model_dir, model_save_dir, dirs_exist_ok=True)
-    logger.info(f'Uploaded the model & the metadata file from {dst_dir}')
+    logger.info(f'Uploaded the model & the metadata file from {remote_dir}')
     return model_save_dir, metadata_file_name
 
 @task(name='load_model')
@@ -187,4 +184,3 @@ def evaluate_model(model: tf.keras.models.Model, classes: List[str], ds_repo_pat
     if isinstance(roc_auc, float):
         mlflow.log_metric("AUC", roc_auc)
     mlflow.log_table(report, 'classification_report.json')
-    
