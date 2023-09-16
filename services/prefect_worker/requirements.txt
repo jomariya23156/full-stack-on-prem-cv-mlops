@@ -1,0 +1,2 @@
+prefect==2.12.1
+GitPython==3.1.32

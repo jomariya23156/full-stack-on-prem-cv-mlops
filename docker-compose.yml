@@ -84,6 +84,31 @@ services:
         depends_on:
             postgres:
                 condition: service_healthy
+        healthcheck:
+            # healthcheck can't access env variable at compose level
+            # so, $$ to tell compose not to parse this variable and it 
+            # will be substituted with an actual env variable at run time
+            test: ["CMD-SHELL", "curl $${PREFECT_API_URL}/health"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    prefect_worker:
+        platform: linux/arm64
+        container_name: prefect_worker
+        build:
+            context: ./services/prefect_worker
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        environment:
+            - PREFECT_API_URL=http://prefect:${PREFECT_PORT}/api
+            - PREFECT_API_DATABASE_CONNECTION_URL=postgresql+asyncpg://prefect_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/prefect_pg_db
+        networks:
+            - mlops_network
+        depends_on:
+            prefect:
+                condition: service_healthy
 
     dl_service:
         platform: linux/arm64
@@ -105,6 +130,9 @@ services:
         volumes:
             - central_storage:/service/central_storage
             - ./services/dl_service/app/:/service/app/
+        depends_on:
+            postgres:
+                condition: service_healthy
 
     web_ui:
         platform: linux/arm64
