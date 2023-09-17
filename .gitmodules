@@ -1,3 +1,6 @@
 [submodule "datasets/animals10-dvc"]
 	path = datasets/animals10-dvc
 	url = https://github.com/jomariya23156/animals10-dvc
+[submodule "deployments/prefect-deployments"]
+	path = deployments/prefect-deployments
+	url = https://github.com/jomariya23156/prefect-deployments
