@@ -12,7 +12,7 @@ from prefect.infrastructure import Process
 # def marvin_flow():
 #     say_hello()
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # print('CWD:',os.getcwd())
     # deployment = Deployment.build_from_flow(
     #     flow=marvin_flow,
@@ -26,9 +26,9 @@ if __name__ == '__main__':
     #     work_pool_name="production-model-pool"
     # )
 
-    deployment = load_deployments_from_yaml('/home/ariya/workspace/deployments/prefect_deployments/prefect.yaml')
-    print('dir:',dir(deployment))
+    # deployment = load_deployments_from_yaml('/home/ariya/workspace/deployments/prefect_deployments/prefect.yaml')
+    # print('dir:',dir(deployment))
     
-    deployment.apply()
+    # deployment.apply()
 
     # cli.deployment.apply(['/home/ariya/workspace/deployments/prefect_deployments/prefect.yaml'])

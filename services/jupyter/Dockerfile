@@ -45,6 +45,7 @@ ARG ARCH=$ARCH
 ARG JUPYTER_PORT=$JUPYTER_PORT
 ARG MLFLOW_ARTIFACT_ROOT=$MLFLOW_ARTIFACT_ROOT
 ARG CENTRAL_STORAGE_PATH=$CENTRAL_STORAGE_PATH
+ARG MAIN_CONDA_ENV_NAME=$MAIN_CONDA_ENV_NAME
 
 # Add a new user and assign sudo privilege
 RUN useradd --create-home --shell /bin/bash $NB_USER && \
@@ -105,11 +106,11 @@ RUN conda init bash && \
     # if it's not your 1st build, sometimes conda will reuse cache which is stored in /opt/anaconda3
     # at this stage, we are not root, so it can cause permission error. the next line's served to prevent this
     conda clean --all --force-pkgs-dirs && \
-    conda create -n computer-viz-dl python=3.9
+    conda create -n ${MAIN_CONDA_ENV_NAME} python=3.9
 
-RUN conda run -n computer-viz-dl pip install -r requirements.txt && \
-    conda run -n computer-viz-dl pip install jupyter -U && \
-    conda run -n computer-viz-dl ipython kernel install --name "computer-viz-dl" --user
+RUN conda run -n ${MAIN_CONDA_ENV_NAME} pip install -r requirements.txt && \
+    conda run -n ${MAIN_CONDA_ENV_NAME} pip install jupyter -U && \
+    conda run -n ${MAIN_CONDA_ENV_NAME} ipython kernel install --name ${MAIN_CONDA_ENV_NAME} --user
 
 RUN sudo mkdir -m 777 -p ./workspace/docker_workspace ./workspace/Python-Practices
 

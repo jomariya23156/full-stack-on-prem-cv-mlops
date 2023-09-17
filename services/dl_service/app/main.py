@@ -47,6 +47,21 @@ bbsd: tf.keras.models.Model = None
 # prepare database
 prepare_db()
 
+@app.get("/health_check", response_model=Message, responses={404: {"model": Message}})
+def health_check(request: Request):
+    start_time = time.time()
+    time_spent = round(time.time() - start_time, 4)
+    resp_code = 200
+    resp_message = "Service is ready and healthy."
+    # Notice we're not using BackgroundTasks here, so we can make sure that our db is functional
+    try:
+        commit_only_api_log_to_db(request, resp_code, resp_message, time_spent)
+    except:
+        resp_code = 404
+        resp_message = "DB is not functional. Service is unhealthy."
+        return JSONResponse(status_code=resp_code, content={"message": resp_message})
+    return {"message": resp_message}
+
 @app.put("/update_model/{model_metadata_file_path}", response_model=Message, responses={404: {"model": Message}})
 def update_model(request: Request, model_metadata_file_path: str, background_tasks: BackgroundTasks):
     global model
@@ -123,9 +138,6 @@ async def predict(request: Request, file: UploadFile, background_tasks: Backgrou
     else:
         bbsd_feats = bbsd.predict(image)[0].astype(np.float64)
     logger.info('Extracted features')
-
-    logger.debug(f'Type UAE: {type(uae_feats)} | value: {uae_feats}')
-    logger.debug(f'Type BBSD: {type(bbsd_feats)} | value: {bbsd_feats}')
 
     # create heatmap (gradcam)
     logger.info('Computing heatmap')

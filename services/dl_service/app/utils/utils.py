@@ -14,7 +14,7 @@ CENTRAL_STORAGE_PATH = os.getenv("CENTRAL_STORAGE_PATH", "/home/ariya/central_mo
 
 logger = logging.getLogger('main')
 
-# best practice is to retrieve the model & config from a model registry service
+# the best practice is to retrieve the model & config from a model registry service
 # and this function will implement the logic to download files to local storage and read them
 def retrieve_metadata_file(model_metadata_file_path: str):
     model_meta_path = os.path.join(CENTRAL_STORAGE_PATH, 'models', model_metadata_file_path)

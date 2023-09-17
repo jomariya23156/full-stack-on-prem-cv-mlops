@@ -51,8 +51,6 @@ def commit_results_to_db(request_obj: fastapi.Request, resp_code: int, resp_mess
     engine = create_engine(DB_CONNECTION_URL)
     session = open_db_session(engine)
     json_str = json.dumps(pred_json)
-    logger.debug(f'Type UAE: {type(uae_feats)}')
-    logger.debug(f'Type BBSD: {type(bbsd_feats)}')
     prediction_record = PredictionsTable(model_name=model_name, input_img=input_img, raw_hm_img=raw_hm_img, 
                                          overlaid_img=overlaid_img, prediction_json=json_str, uae_feats=uae_feats,
                                          bbsd_feats=bbsd_feats)

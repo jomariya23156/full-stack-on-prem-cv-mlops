@@ -2,7 +2,7 @@
     "flow_module": "flows.full_flow",
 
     "model": {
-        "model_name": "animals10_classifier_50px_trial2",
+        "model_name": "animals10_classifier_50px_trial3",
         "input_size": {"w": 50, "h": 50},
         "classes": ["butterfly", "cat", "chicken", "cow", "dog", 
             "elephant", "horse", "sheep", "spider", "squirrel"],

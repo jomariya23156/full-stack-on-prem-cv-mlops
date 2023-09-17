@@ -5,6 +5,7 @@ ARG PREFECT_PORT=$PREFECT_PORT
 # for using curl in health check
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         curl \
+        tzdata \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

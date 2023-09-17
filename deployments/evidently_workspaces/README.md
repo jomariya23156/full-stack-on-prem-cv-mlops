@@ -1,0 +1,1 @@
+Inside JupyterLab, this location is mounted with `evidently_db` volume. So, you can manipulate Evidently projects/reports/test suites here.

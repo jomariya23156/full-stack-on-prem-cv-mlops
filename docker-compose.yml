@@ -17,6 +17,7 @@ services:
                 JUPYTER_PORT: ${JUPYTER_PORT}
                 MLFLOW_ARTIFACT_ROOT: ${MLFLOW_ARTIFACT_ROOT}
                 CENTRAL_STORAGE_PATH: /home/${JUPYTER_USER}/central_storage
+                MAIN_CONDA_ENV_NAME: computer-viz-dl
         env_file:
             - .env
         environment:
@@ -31,11 +32,11 @@ services:
             - mlops_network
         ports: 
             - "${JUPYTER_PORT}:${JUPYTER_PORT}"
-            - "8000:8000" # for dev
         volumes:
             - ./:/home/${JUPYTER_USER}/workspace/
             - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
             - central_storage:/home/${JUPYTER_USER}/central_storage
+            - evidently_db:/home/${JUPYTER_USER}/workspace/deployments/evidently_workspaces
         depends_on:
             - mlflow
             - prefect
@@ -87,7 +88,7 @@ services:
         healthcheck:
             # healthcheck can't access env variable at compose level
             # so, $$ to tell compose not to parse this variable and it 
-            # will be substituted with an actual env variable at run time
+            # will be substituted with an actual env variable at runtime
             test: ["CMD-SHELL", "curl $${PREFECT_API_URL}/health"]
             interval: 5s
             timeout: 5s
@@ -103,9 +104,14 @@ services:
             - .env
         environment:
             - PREFECT_API_URL=http://prefect:${PREFECT_PORT}/api
+            - EVIDENTLY_URL=http://evidently:${EVIDENTLY_PORT}
             - PREFECT_API_DATABASE_CONNECTION_URL=postgresql+asyncpg://prefect_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/prefect_pg_db
+            - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
+            - CENTRAL_STORAGE_PATH=/service/central_storage
         networks:
             - mlops_network
+        volumes:
+            - central_storage:/service/central_storage
         depends_on:
             prefect:
                 condition: service_healthy
@@ -123,8 +129,6 @@ services:
         environment:
             - CENTRAL_STORAGE_PATH=/service/central_storage
             - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
-            - DB_PREDICTION_TABLE_NAME=predictions
-            - DB_API_LOG_TABLE_NAME=api_log
         networks:
             - mlops_network
         volumes:
@@ -133,6 +137,28 @@ services:
         depends_on:
             postgres:
                 condition: service_healthy
+        healthcheck:
+            test: ["CMD-SHELL", "curl http://127.0.0.1:$${DL_SERVICE_PORT}/health_check"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    evidently:
+        platform: linux/arm64
+        container_name: evidently
+        build: 
+            context: ./services/evidently
+            dockerfile: Dockerfile
+            args:
+                EVIDENTLY_PORT: ${EVIDENTLY_PORT}
+        env_file:
+            - .env
+        networks:
+            - mlops_network
+        ports:
+            - "${EVIDENTLY_PORT}:${EVIDENTLY_PORT}"
+        volumes:
+            - evidently_db:/service/${EVIDENTLY_WORKSPACE_NAME}
 
     web_ui:
         platform: linux/arm64
@@ -153,7 +179,8 @@ services:
         volumes:
             - ./services/web_ui/app/:/service/app/
         depends_on:
-            - dl_service
+            dl_service:
+                condition: service_healthy
 
     nginx:
         platform: linux/arm64
@@ -167,7 +194,8 @@ services:
         networks:
             - mlops_network
         depends_on:
-            - dl_service
+            dl_service:
+                condition: service_healthy
 
     postgres:
         platform: linux/arm64
@@ -219,4 +247,5 @@ volumes:
     prefect_db:
     pgadmin_db:
     pgdata:
+    evidently_db:
     central_storage:
