@@ -12,7 +12,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Dict
 from utils import (GradCAM, tf_load_model, array_to_encoded_str, process_heatmap, 
-                   prepare_db, load_drift_detectors, commit_results_to_db, commit_only_api_log_to_db)
+                   prepare_db, load_drift_detectors, commit_results_to_db, 
+                   commit_only_api_log_to_db, check_db_healthy)
 
 # define Pydantic models for type validation
 class Message(BaseModel):
@@ -49,18 +50,14 @@ prepare_db()
 
 @app.get("/health_check", response_model=Message, responses={404: {"model": Message}})
 def health_check(request: Request):
-    start_time = time.time()
-    time_spent = round(time.time() - start_time, 4)
     resp_code = 200
     resp_message = "Service is ready and healthy."
-    # Notice we're not using BackgroundTasks here, so we can make sure that our db is functional
     try:
-        commit_only_api_log_to_db(request, resp_code, resp_message, time_spent)
+        check_db_healthy()
     except:
         resp_code = 404
         resp_message = "DB is not functional. Service is unhealthy."
-        return JSONResponse(status_code=resp_code, content={"message": resp_message})
-    return {"message": resp_message}
+    return JSONResponse(status_code=resp_code, content={"message": resp_message})
 
 @app.put("/update_model/{model_metadata_file_path}", response_model=Message, responses={404: {"model": Message}})
 def update_model(request: Request, model_metadata_file_path: str, background_tasks: BackgroundTasks):

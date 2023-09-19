@@ -4,7 +4,7 @@ import logging
 import fastapi
 import sqlalchemy
 import numpy as np
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 from typing import Optional
@@ -24,6 +24,12 @@ def prepare_db() -> None:
     engine = create_engine(DB_CONNECTION_URL)
     Base.metadata.create_all(engine)
     logger.info("Database is ready.")
+
+def check_db_healthy() -> None:
+    engine = create_engine(DB_CONNECTION_URL)
+    with engine.connect() as connection:
+        result = connection.execute(text(f"select 1 from {DB_API_LOG_TABLE_NAME} limit 1"))
+        result.all()
 
 def open_db_session(engine: sqlalchemy.engine) -> sqlalchemy.orm.Session:
     Session = sessionmaker(bind=engine)

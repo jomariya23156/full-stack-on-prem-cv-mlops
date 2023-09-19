@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+    # dev workspace
     jupyter:
         # platform: linux/x86_64 # for others (mostly)
         platform: linux/arm64 # for mac with apple chip
@@ -13,7 +14,7 @@ services:
                 NB_PWD: 123456789
                 NB_UID: 1412
                 CONDA_DIR: /opt/anaconda3
-                ARCH: aarch64 # aarch64 for Mac with Apple's chip | x86_64 for others (mostly)
+                ARCH: aarch64 # aarch64 for Mac M1 | x86_64 for others (mostly)
                 JUPYTER_PORT: ${JUPYTER_PORT}
                 MLFLOW_ARTIFACT_ROOT: ${MLFLOW_ARTIFACT_ROOT}
                 CENTRAL_STORAGE_PATH: /home/${JUPYTER_USER}/central_storage
@@ -34,16 +35,18 @@ services:
             - "${JUPYTER_PORT}:${JUPYTER_PORT}"
         volumes:
             - ./:/home/${JUPYTER_USER}/workspace/
-            - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
+            - mlflow_data:${MLFLOW_ARTIFACT_ROOT}
             - central_storage:/home/${JUPYTER_USER}/central_storage
-            - evidently_db:/home/${JUPYTER_USER}/workspace/deployments/evidently_workspaces
+            - evidently_data:/home/${JUPYTER_USER}/workspace/deployments/evidently_workspaces
         depends_on:
             - mlflow
             - prefect
 
+    # ML platform / experiment tracking
     mlflow:
         platform: linux/arm64
         container_name: mlflow
+        restart: always
         build:
             context: ./services/mlflow
             dockerfile: Dockerfile
@@ -58,14 +61,16 @@ services:
         ports:
             - "${MLFLOW_PORT}:${MLFLOW_PORT}"
         volumes:
-            - mlflow_db:${MLFLOW_ARTIFACT_ROOT}
+            - mlflow_data:${MLFLOW_ARTIFACT_ROOT}
         depends_on:
             postgres:
                 condition: service_healthy
 
+    # orchestrator
     prefect:
         platform: linux/arm64
         container_name: prefect
+        restart: always
         build:
             context: ./services/prefect
             dockerfile: Dockerfile
@@ -81,7 +86,7 @@ services:
         ports:
             - "${PREFECT_PORT}:${PREFECT_PORT}"
         volumes:
-            - prefect_db:${PREFECT_LOCAL_STORAGE_PATH}
+            - prefect_data:${PREFECT_LOCAL_STORAGE_PATH}
         depends_on:
             postgres:
                 condition: service_healthy
@@ -94,6 +99,7 @@ services:
             timeout: 5s
             retries: 5
 
+    # worker / agent / automation
     prefect_worker:
         platform: linux/arm64
         container_name: prefect_worker
@@ -116,9 +122,11 @@ services:
             prefect:
                 condition: service_healthy
 
+    # model deployment / model service
     dl_service:
         platform: linux/arm64
         container_name: dl_service
+        restart: always
         build:
             context: ./services/dl_service
             dockerfile: Dockerfile
@@ -143,23 +151,7 @@ services:
             timeout: 5s
             retries: 5
 
-    evidently:
-        platform: linux/arm64
-        container_name: evidently
-        build: 
-            context: ./services/evidently
-            dockerfile: Dockerfile
-            args:
-                EVIDENTLY_PORT: ${EVIDENTLY_PORT}
-        env_file:
-            - .env
-        networks:
-            - mlops_network
-        ports:
-            - "${EVIDENTLY_PORT}:${EVIDENTLY_PORT}"
-        volumes:
-            - evidently_db:/service/${EVIDENTLY_WORKSPACE_NAME}
-
+    # ui for model service
     web_ui:
         platform: linux/arm64
         container_name: web_ui
@@ -182,6 +174,7 @@ services:
             dl_service:
                 condition: service_healthy
 
+    # reverse proxy
     nginx:
         platform: linux/arm64
         container_name: nginx
@@ -197,6 +190,92 @@ services:
             dl_service:
                 condition: service_healthy
 
+    # model monitoring
+    evidently:
+        platform: linux/arm64
+        container_name: evidently
+        build: 
+            context: ./services/evidently
+            dockerfile: Dockerfile
+            args:
+                EVIDENTLY_PORT: ${EVIDENTLY_PORT}
+        env_file:
+            - .env
+        networks:
+            - mlops_network
+        ports:
+            - "${EVIDENTLY_PORT}:${EVIDENTLY_PORT}"
+        volumes:
+            - evidently_data:/service/${EVIDENTLY_WORKSPACE_NAME}
+
+    # overall monitoring & dashboards
+    grafana:
+        platform: linux/arm64
+        image: grafana/grafana-oss:latest
+        container_name: grafana
+        restart: unless-stopped
+        networks:
+            - backend_network
+        ports:
+            - 3000:3000
+        volumes:
+            - ./services/grafana/grafana_datasources.yml:/etc/grafana/provisioning/datasources/grafana_datasources.yml:ro
+            - ./services/grafana/grafana_dashboards.yml:/etc/grafana/provisioning/dashboards/grafana_dashboards.yml:ro
+            - ./services/grafana/dashboards:/opt/grafana/dashboards
+            - grafana_data:/var/lib/grafana
+        depends_on:
+            - prometheus
+
+    # time-series database
+    prometheus:
+        platform: linux/arm64
+        image: prom/prometheus:latest
+        container_name: prometheus
+        restart: unless-stopped
+        networks:
+            - backend_network
+        ports:
+            - 9090:9090
+        volumes:
+            - ./services/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+            - prometheus_data:/prometheus
+        command: "--config.file=/etc/prometheus/prometheus.yaml"
+    
+    # host machine's metrics exporter for prometheus
+    node_exporter:
+        platform: linux/arm64
+        image: quay.io/prometheus/node-exporter:v1.5.0
+        container_name: node_exporter
+        restart: unless-stopped
+        pid: host
+        networks:
+            - backend_network
+        volumes: 
+            - /:/host:ro,rslave
+        command: "--path.rootfs=/host"
+
+    # cadvisor
+    cadvisor:
+        image: gcr.io/cadvisor/cadvisor:v0.47.0   
+        container_name: cadvisor
+        restart: unless-stopped
+        networks:
+            - backend_network
+        ports:
+            - 8080:8080
+        volumes:
+            - /:/rootfs:ro
+            - /var/run:/var/run:ro
+            - /sys:/sys:ro
+            - /var/lib/docker/:/var/lib/docker:ro
+            - /dev/disk/:/dev/disk:ro
+            # this line is needed to make it work on Mac M1
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        devices:
+            - /dev/kmsg
+        privileged: true
+
+    # sql database
     postgres:
         platform: linux/arm64
         container_name: postgres
@@ -208,9 +287,6 @@ services:
             - POSTGRES_DB=postgres
         networks:
             - mlops_network
-        # might not need this cuz we don't directly access postgres anyways
-        ports:
-            - "${POSTGRES_PORT}:5432"
         volumes:
             - ./services/postgres/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
             - pgdata:/var/lib/postgresql/data
@@ -220,6 +296,7 @@ services:
             timeout: 5s
             retries: 5
         
+    # ui for database
     pgadmin:
         platform: linux/arm64
         container_name: pgadmin
@@ -233,7 +310,7 @@ services:
         ports:
             - "16543:80"
         volumes:
-            - pgadmin_db:/var/lib/pgadmin
+            - pgadmin_data:/var/lib/pgadmin
         depends_on:
             postgres:
                 condition: service_healthy
@@ -241,11 +318,15 @@ services:
 networks:
     mlops_network:
         driver: "bridge"
+    backend_network:
+        driver: "bridge"
 
 volumes:
-    mlflow_db:
-    prefect_db:
-    pgadmin_db:
+    mlflow_data:
+    prefect_data:
+    pgadmin_data:
+    grafana_data:
+    prometheus_data:
     pgdata:
-    evidently_db:
+    evidently_data:
     central_storage:
