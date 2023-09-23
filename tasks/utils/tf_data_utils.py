@@ -43,7 +43,7 @@ def augment(x, y, augmenter):
     return x, y
 
 def build_data_pipeline(annot_df: pd.DataFrame, classes: List[str], split: str, img_size: List[int],
-                        batch_size: int, do_augment: bool=False, augmenter: iaa=None):
+                        batch_size: int=8, do_augment: bool=False, augmenter: iaa=None):
     df = annot_df[annot_df['split']==split]
     path = df['abs_path']
     label = df[classes]

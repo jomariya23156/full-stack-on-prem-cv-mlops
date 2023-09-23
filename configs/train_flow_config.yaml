@@ -1,0 +1,46 @@
+flow_module: flows.train_flow
+
+model:
+    model_name: animals10_classifier_50px_trial7
+    input_size:
+        w: 50
+        h: 50
+    classes:
+        - butterfly
+        - cat
+        - chicken
+        - cow
+        - dog
+        - elephant
+        - horse
+        - sheep
+        - spider
+        - squirrel
+    classifier_activation: softmax
+    classifier_type: multi-class
+    classification_layer: classify_head
+    save_dir: /home/ariya/workspace/models/
+    drift_detection:
+        uae_model_suffix: _uae
+        uae_encoding_dims: 128
+        bbsd_model_suffix: _bbsd
+        bbsd_layer_idx: -1
+        reference_data_suffix: _ref_data
+        reference_data_n_sample: 5000
+        
+dataset:
+    ds_root: /home/ariya/workspace/datasets/
+    ds_name: animals10-dvc
+    dvc_tag: v2.0.0
+    dvc_checkout: true
+    
+train:
+    hparams:
+        epochs: 3
+        batch_size: 128
+        init_lr: 0.001
+    mlflow:
+        exp_name: Train Animals10 classifier
+        exp_desc: Train a classifier model
+        exp_tags:
+            dataset: Animals10

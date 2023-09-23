@@ -31,19 +31,26 @@ def build_model_metadata(model_cfg):
     metadata.pop('save_dir')
     return metadata
 
+def build_figure_from_df(df: pd.DataFrame):
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.axis('off')
+    table = pd.plotting.table(ax, df, loc='center', cellLoc='center')  # where df is your data frame
+    plt.show()
+    return fig, table
+
 @task(name='upload_model')
-def upload_model(model_dir: str, remote_dir: str):
+def upload_model(model_dir: str, metadata_file_path: str, remote_dir: str):
     # this is the step you should replace with uploading the file
     # to a cloud storage if you want to deploy on cloud
     logger = get_run_logger()
     model_name = os.path.split(model_dir)[-1]
-    metadata_file_name = model_name+'.yaml'
-    metadata_file_path = model_dir+'.yaml'
+    metadata_file_name = os.path.split(metadata_file_path)[-1]
+
     shutil.copy2(metadata_file_path, remote_dir)
     
     model_save_dir = os.path.join(remote_dir, model_name)
     shutil.copytree(model_dir, model_save_dir, dirs_exist_ok=True)
-    logger.info(f'Uploaded the model & the metadata file from {remote_dir}')
+    logger.info(f'Uploaded the model & the metadata file from {model_save_dir}')
     return model_save_dir, metadata_file_name
 
 @task(name='load_model')
@@ -73,7 +80,7 @@ def save_model(model: tf.keras.models.Model, model_cfg: Dict[str, Union[str, Lis
     mlflow.log_artifact(model_dir)
     mlflow.log_artifact(metadata_save_path)
     
-    return model_dir
+    return model_dir, metadata_save_path
     
 @task(name='build_model')
 def build_model(input_size: list, n_classes: int, classifier_activation: str = 'softmax',
@@ -136,11 +143,11 @@ def train_model(model: tf.keras.models.Model, classes: List[str], ds_repo_path: 
 
 @task(name='evaluate_model')
 def evaluate_model(model: tf.keras.models.Model, classes: List[str], ds_repo_path: str, 
-                   annotation_df: pd.DataFrame, img_size: List[int], batch_size: int, 
-                   classifier_type: str='multi-class', multilabel_thr: float=0.5):
+                   annotation_df: pd.DataFrame, subset: str, img_size: List[int], classifier_type: str='multi-class', 
+                   multilabel_thr: float=0.5):
     logger = get_run_logger()
-    logger.info('Building a test data pipeline')
-    test_ds = build_data_pipeline(annotation_df, classes, 'test', img_size, batch_size, 
+    logger.info(f"Building a data pipeline from '{subset}' set")
+    test_ds = build_data_pipeline(annotation_df, classes, subset, img_size,
                                    do_augment=False, augmenter=None)
     logger.info('Getting ground truths and making predictions')
     y_true_bin = np.concatenate([y for _, y in test_ds], axis=0)
@@ -183,4 +190,9 @@ def evaluate_model(model: tf.keras.models.Model, classes: List[str], ds_repo_pat
         mlflow.log_figure(conf_matrix_fig, 'confusion_matrix.png')
     if isinstance(roc_auc, float):
         mlflow.log_metric("AUC", roc_auc)
+    # log_figure is a lot easier to look at from ui than log_table
+    report = report.apply(lambda x: round(x, 5))
+    report = report.reset_index()
+    report_fig, _ = build_figure_from_df(report)
+    mlflow.log_figure(report_fig, 'classification_report.png')
     mlflow.log_table(report, 'classification_report.json')

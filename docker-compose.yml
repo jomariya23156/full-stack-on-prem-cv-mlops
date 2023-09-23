@@ -3,8 +3,8 @@ version: '3.8'
 services:
     # dev workspace
     jupyter:
-        # platform: linux/x86_64 # for others (mostly)
-        platform: linux/arm64 # for mac with apple chip
+        # platform: linux/x86_64 # for others (mostly) or can just remove this line
+        platform: linux/arm64 # for Mac M1
         container_name: jupyter
         build:
             context: ./services/jupyter
@@ -25,7 +25,6 @@ services:
             - MLFLOW_TRACKING_URI=http://mlflow:${MLFLOW_PORT}
             - PREFECT_API_URL=http://prefect:${PREFECT_PORT}/api
             - CENTRAL_STORAGE_PATH=/home/${JUPYTER_USER}/central_storage
-            # for dev
             - DB_CONNECTION_URL=postgresql://dlservice_user:SuperSecurePwdHere@postgres:${POSTGRES_PORT}/dlservice_pg_db
             - DB_PREDICTION_TABLE_NAME=predictions
             - DB_API_LOG_TABLE_NAME=api_log
@@ -217,7 +216,7 @@ services:
         networks:
             - backend_network
         ports:
-            - 3000:3000
+            - "${GRAFANA_PORT}:3000"
         volumes:
             - ./services/grafana/grafana_datasources.yml:/etc/grafana/provisioning/datasources/grafana_datasources.yml:ro
             - ./services/grafana/grafana_dashboards.yml:/etc/grafana/provisioning/dashboards/grafana_dashboards.yml:ro
@@ -235,7 +234,7 @@ services:
         networks:
             - backend_network
         ports:
-            - 9090:9090
+            - "${PROMETHEUS_PORT}:9090"
         volumes:
             - ./services/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
             - prometheus_data:/prometheus
@@ -262,7 +261,7 @@ services:
         networks:
             - backend_network
         ports:
-            - 8080:8080
+            - "${CADVISOR_PORT}:8080"
         volumes:
             - /:/rootfs:ro
             - /var/run:/var/run:ro

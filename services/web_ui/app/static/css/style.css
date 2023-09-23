@@ -148,7 +148,7 @@ img {
   left: 25%;
   right: 25%;
   opacity: 0.5;
-  mix-blend-mode: screen;
+  /* mix-blend-mode: screen; */
   /* border: 1px green solid; */
 }
 

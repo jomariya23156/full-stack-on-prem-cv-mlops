@@ -28,7 +28,6 @@ def upload_image(request: Request, file: UploadFile):
     global cached_img_file
     global cached_encoded_img
     
-    # .seek(0) to reset the pointer, so it can be read again
     cached_img_file = file.file.read()
     file.file.close()
 
@@ -43,5 +42,5 @@ def call_api(request: Request):
     pred_result = res['prediction']
     # this will be a list of tuple('class': prob)
     sorted_pred = list(reversed(sorted(pred_result.items(), key=lambda x: x[1])))
-    return templates.TemplateResponse('index.html', {'request': request, 'img': cached_encoded_img, 'model_name':res['model_name'] ,'pred_result': sorted_pred, 'raw_hm_img': res['raw_hm_img']})
+    return templates.TemplateResponse('index.html', {'request': request, 'img': cached_encoded_img, 'model_name':res['model_name'], 'pred_result': sorted_pred, 'raw_hm_img': res['overlaid_img']})
     

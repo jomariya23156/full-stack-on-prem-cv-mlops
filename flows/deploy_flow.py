@@ -1,34 +1,23 @@
 import os
-from prefect import flow, task, cli
-from prefect.deployments import Deployment, load_deployments_from_yaml
-from prefect.server.schemas.schedules import CronSchedule, IntervalSchedule
-from prefect.infrastructure import Process
+from prefect import flow, get_run_logger
+from typing import Dict, Any
+from tasks.deploy import put_model_to_service, deploy_prefect_flow, create_or_update_prefect_vars
 
-# @task
-# def say_hello():
-#     print("Hi Mom!")
+@flow(name='deploy_flow')
+def deploy_flow(cfg: Dict[str, Any], metadata_file_name: str):
+    deploy_cfg = cfg['deploy']
+    # trigger the service to setup the model from this save_dir
+    put_model_to_service(metadata_file_name)
 
-# @flow(name="Hi Mom Flow")
-# def marvin_flow():
-#     say_hello()
+    prefect_kv_vars = {
+        # this should match deployment name of drift detection flow in prefect.yaml
+        "current_model_metadata_file": metadata_file_name
+    }
+    create_or_update_prefect_vars(prefect_kv_vars)
 
-# if __name__ == '__main__':
-    # print('CWD:',os.getcwd())
-    # deployment = Deployment.build_from_flow(
-    #     flow=marvin_flow,
-    #     name="hi_mom_frequently",
-    #     parameters={},
-    #     # schedule=CronSchedule(cron="0 3 * * 1", timezone="Europe/Madrid"), # Run it at 03:00 am every Monday
-    #     schedule=IntervalSchedule(interval=30), # in seconds
-    #     infrastructure=Process(working_dir=os.getcwd()), # Run flows from current local directory
-    #     version=1,
-    #     # work_queue_name="default",
-    #     work_pool_name="production-model-pool"
-    # )
+    deploy_prefect_flow(deploy_cfg['prefect']['git_repo_root'],
+                        deploy_cfg['prefect']['deployment_name'])
 
-    # deployment = load_deployments_from_yaml('/home/ariya/workspace/deployments/prefect_deployments/prefect.yaml')
-    # print('dir:',dir(deployment))
-    
-    # deployment.apply()
-
-    # cli.deployment.apply(['/home/ariya/workspace/deployments/prefect_deployments/prefect.yaml'])
+def start(cfg):
+    deploy_cfg = cfg['deploy']
+    deploy_flow(cfg, deploy_cfg['model_metadata_file_name'])

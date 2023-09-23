@@ -1,0 +1,17 @@
+flow_module: flows.eval_flow
+        
+dataset:
+    ds_root: /home/ariya/workspace/datasets/
+    ds_name: animals10-dvc
+    dvc_tag: v2.0.0
+    dvc_checkout: true
+    
+evaluate:
+    subset: test
+    model_dir: /home/ariya/central_storage/models/animals10_classifier_75px_trial1/
+    model_metadata_file_path: /home/ariya/central_storage/models/animals10_classifier_75px_trial1.yaml
+    mlflow:
+        exp_name: Evaluate Animals10 classifier
+        exp_desc: Evaluate a classifier model
+        exp_tags:
+            dataset: Animals10

@@ -1,2 +1,2 @@
-evidently==0.4.3
+evidently==0.4.5
 pandas==1.4.2

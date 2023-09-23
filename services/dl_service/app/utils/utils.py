@@ -56,11 +56,13 @@ def array_to_encoded_str(image: np.ndarray):
 def process_heatmap(heatmap: np.ndarray):
     # process heatmap: blur & thr for a more elegant heatmap
     out_heatmap = heatmap.copy()
-    hm_size = out_heatmap.shape
-    blur_ksize = (int(0.05*hm_size[0]),int(0.05*hm_size[1]))
-    out_heatmap = cv2.blur(out_heatmap, blur_ksize)
     # thresholding
     thr = 0.05 * 255
     out_heatmap[out_heatmap<thr] = 0
+    
+    hm_size = out_heatmap.shape
+    blur_ksize = (int(0.05*hm_size[0]),int(0.05*hm_size[1]))
+    out_heatmap = cv2.blur(out_heatmap, blur_ksize)
+    
     return out_heatmap
     
