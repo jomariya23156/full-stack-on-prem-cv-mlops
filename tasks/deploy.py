@@ -45,7 +45,7 @@ def create_or_update_prefect_vars(kv_vars: Dict[str, Any]):
 
 @task(name='deploy_prefect_flow', log_prints=True)
 def deploy_prefect_flow(git_repo_root: str, deploy_name: str):
-    subprocess.run([f"cd {git_repo_root} && prefect deploy --name {deploy_name}"],
+    subprocess.run([f"cd {git_repo_root} && prefect --no-prompt deploy --name {deploy_name}"],
                     shell=True)
 
 @task(name='put_model_to_service')

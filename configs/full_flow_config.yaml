@@ -1,10 +1,10 @@
 flow_module: flows.full_flow
 
 model:
-    model_name: animals10_classifier_75px_trial1
+    model_name: animals10_classifier_150px_trial1
     input_size:
-        w: 75
-        h: 75
+        w: 150
+        h: 150
     classes:
         - butterfly
         - cat
@@ -22,7 +22,7 @@ model:
     save_dir: /home/ariya/workspace/models/
     drift_detection:
         uae_model_suffix: _uae
-        uae_encoding_dims: 128
+        uae_encoding_dims: 64
         bbsd_model_suffix: _bbsd
         bbsd_layer_idx: -1
         reference_data_suffix: _ref_data
@@ -36,8 +36,8 @@ dataset:
     
 train:
     hparams:
-        epochs: 4
-        batch_size: 128
+        epochs: 10
+        batch_size: 64
         init_lr: 0.001
     mlflow:
         exp_name: Train Animals10 classifier

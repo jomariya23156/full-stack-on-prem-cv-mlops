@@ -154,7 +154,7 @@ async def predict(request: Request, file: UploadFile, background_tasks: Backgrou
     logger.info('Overlaying heatmap onto the input image')
     heatmap = cv2.resize(heatmap, (ori_image.shape[1], ori_image.shape[0]))
     heatmap = process_heatmap(heatmap)
-    (heatmap, overlaid_img) = cam.overlay_heatmap(heatmap, ori_image, alpha=0.5)
+    (heatmap, overlaid_img) = cam.overlay_heatmap(heatmap, ori_image, alpha=0.2)
     logger.info('Finished overlaying heatmap')
     
     # format prediction
