@@ -6,6 +6,7 @@ WORKDIR /service
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         git \
         tzdata \
+        build-essential \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

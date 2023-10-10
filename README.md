@@ -16,8 +16,11 @@ We highly recommend watching the demo videos in the **Demo videos** section to g
 <image src="./files/software_diagram.png">
 
 # Demo videos
-Demo: [1st vid link here]()  
-In-dept technical walkthrough: [2nd vid link here]()
+Demo: https://youtu.be/NKil4uzmmQc  
+In-dept technical walkthrough: https://youtu.be/l1S5tHuGBA8  
+### Resources in the video:
+- Model files (ResNet50-based models): [link](https://drive.google.com/file/d/1HFCUCnrTm4MzfkfHtz8_ahh_sVro4qXR/view?usp=sharing)
+- Slide: [link](https://docs.google.com/presentation/d/1q5xJdu5v3QekB-1jlX7fC9-zTLLwhXSCBmsq8HMK-p4/edit?usp=sharing)
 
 # Tools / Technologies
 To use this repository, you only need Docker. For reference, we use *Docker version 24.0.6, build ed223bc* and *Docker Compose version v2.21.0-desktop.1* on Mac M1.
@@ -45,13 +48,28 @@ We've implemented several best practices in this project:
 - Configuration of Nginx for terminal log display
 - Setting up a Prefect worker to support working on a cluster
 
+# Service ports
+Most of the ports can be customized in the .env file at the root of this repository. Here are the defaults:
+- JupyterLab: 8888 (pw: `123456789`)
+- MLflow: 5050
+- Prefect: 4200
+- PostgreSQL: 5432
+- PGagmin: 16543 (user: `pgadmin@gmail.com`, pw: `SuperSecurePwdHere`)
+- Deep Learning service: 4242
+- Web UI interface for Deep Learning service: 4243
+- Nginx: 80
+- Evidently: 8000
+- Prometheus: 9090
+- Grafana: 3000 (user: `admin`, pw: `admin`)
+
 # How to use
 You have to consider comment those `platform: linux/arm64` lines in `docker-compose.yml` if you not using an ARM-based computer (we're using Mac M1 for development). Otherwise, this system is not gonna work.
 ## Setup
 1. Clone this repo. There are 2 submodules in this repo, so consider using `--recurse-submodules` flag in your command: `git clone --recurse-submodules https://github.com/jomariya23156/full-stack-on-prem-cv-mlops`
-2. At the root of the repo directory, run `docker-compose up` or `docker-compose up -d` to detach the terminal.
-3. On the first time, it can take a while due to the size of images, especially jupyter image (~9 GB) since it contains a lot of packages and libraries. Generally, it takes around 5-10 minutes.
-4. Go to the DvC submodule at `datasets/animals10-dvc` and follow steps in the **How to use** section.
+2. **[For users with CUDA]** If you have CUDA-compatible GPU(s), you can uncomment `deploy` section under `jupyter` service in `docker-compose.yml` and change the base image in `services/jupyter/Dockerfile` from `ubuntu:18.04` to `nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04` (the text is there in the file, you just need to comment and uncomment) to leverage your GPU(s). You might also need to install `nvidia-container-toolkit` on the host machine to make it work. For Windows/WSL2 users, we found [this article](https://medium.com/htc-research-engineering-blog/nvidia-docker-on-wsl2-f891dfe34ab) very helpful.
+3. At the root of the repo directory, run `docker-compose up` or `docker-compose up -d` to detach the terminal.
+4. On the first time, it can take a while due to the size of images, especially jupyter image since it contains a lot of packages and libraries. Generally, it can take from 5 up to 20 minutes.
+5. Go to the DvC submodule at `datasets/animals10-dvc` and follow steps in the **How to use** section.
 ## Minimal usage
 1. Open the Jupyter lab on port 8888 `http://localhost:8888/lab`
 2. Go to the workspace directory `cd ~/workspace/`
@@ -107,19 +125,10 @@ You have to consider comment those `platform: linux/arm64` lines in `docker-comp
        4. The monitor flow is schedule to run weekly aka once a week. But you can run the deployed flow manually from Prefect UI. Check out their official doc on how to do this (pretty simple and straight forward)
        5. You can also view the data drift dashboard on Evidently UI (port 8000, by default)
 
-# Service ports
-Most of the ports can be customized in the .env file at the root of this repository. Here are the defaults:
-- JupyterLab: 8888 (pw: `123456789`)
-- MLflow: 5050
-- Prefect: 4200
-- PostgreSQL: 5432
-- PGagmin: 16543 (user: `pgadmin@gmail.com`, pw: `SuperSecurePwdHere`)
-- ML model service: 4242
-- Web UI interface for ML model service: 4243
-- Nginx: 80
-- Evidently: 8000
-- Prometheus: 9090
-- Grafana: 3000 (user: `admin`, pw: `admin`)
+# From On-Premises to On-Cloud
+Since everything is already dockerized and containerized in this repo, converting the service from on-prem to on-cloud is pretty much straightforward. When you finish developing and testing your service API, you can just spin off *services/dl_service* by building the container from its Dockerfile, and push it to a cloud container registry service (AWS ECR, for an example). That's it!  
+**Note:** There is one potential problem in the service code if you want to use it in a real production environment. I have addressed it in the [in-depth video]() and I recommend you to spend some time on watching the whole video.  
+<img src="./files/prem-to-cloud.png" width=600px height=300px>
 
 # DB schemas
 We have three databases inside PostgreSQL: one for MLflow, one for Prefect, and one that we've created for our ML model service. We won't delve into the first two, as they are self-managed by those tools. The database for our ML model service is the one we've designed ourselves.  

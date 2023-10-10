@@ -40,6 +40,15 @@ services:
         depends_on:
             - mlflow
             - prefect
+        # # Unconmment this field down below in case you have CUDA-enabled GPUs
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
+
 
     # ML platform / experiment tracking
     mlflow:

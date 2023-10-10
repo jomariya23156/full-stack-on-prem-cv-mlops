@@ -1,8 +1,8 @@
-FROM nvidia/cuda:11.3.1-devel-ubuntu18.04
+FROM ubuntu:18.04
+# FROM nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04
 
 USER root
 
-# Pick up some TF dependencies
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         build-essential \
         curl \
@@ -88,8 +88,10 @@ WORKDIR /home/$NB_USER
 RUN curl -O https://repo.anaconda.com/miniconda/Miniconda3-py38_23.3.1-0-Linux-${ARCH}.sh && \
     bash Miniconda3-py38_23.3.1-0-Linux-${ARCH}.sh -f -b -p $CONDA_DIR
 
-# Put conda in path
-ENV PATH=$CONDA_DIR/bin:$PATH
+# Put conda in path 
+# PIP_DEFAULT_TIMEOUT=100 to solve ReadTimeoutError when pip install large packages
+ENV PATH=$CONDA_DIR/bin:$PATH \
+    PIP_DEFAULT_TIMEOUT=100 
 
 # update conda
 RUN conda update -n base conda

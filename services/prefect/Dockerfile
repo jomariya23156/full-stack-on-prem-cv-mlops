@@ -6,6 +6,7 @@ ARG PREFECT_PORT=$PREFECT_PORT
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         curl \
         tzdata \
+        build-essential \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
