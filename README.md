@@ -9,8 +9,6 @@ Another goal is to show how to integrate all these tools and make them work toge
 
 The entire system is containerized into a single Docker Compose file. To set it up, all you have to do is run `docker-compose up`! This is a fully on-premises system, which means no need for a cloud account, and it **won't cost you a dime** to use the entire system!
 
-We highly recommend you to watch the videos in the **Demo videos** section to see the whole picture and understand how to apply this system with your projects/models. (it contains some important detail which is too-long-and-might-not-be-clear to mention here)
-
 We highly recommend watching the demo videos in the **Demo videos** section to get a comprehensive overview and understand how to apply this system to your projects. These videos contain important details that might be too-long-and-not-clear-enough to covered here.
 
 <image src="./files/software_diagram.png">
