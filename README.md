@@ -1,6 +1,6 @@
 <h1 align="center"> Full-stack On-Premises MLOps system for Computer Vision </h1>
 
-<p align="center"><b>:arrow_forward: 1 config, 1 command from Jupyter Notebook to serve Millions of users :arrow_backward:</b></p>  
+<p align="center"><b> ▶️ 1 config, 1 command from Jupyter Notebook to serve Millions of users ◀️ </b></p>  
 
 # Overview
 Welcome to our comprehensive on-premises MLOps ecosystem designed specifically for Computer Vision tasks, with a primary focus on image classification. This repository equips you with everything you need, from a development workspace in Jupyter Lab/Notebook to production-level services. The best part? It only takes **"1 config and 1 command"** to run the whole system from building the model to deployment! We've integrated numerous best practices to ensure scalability and reliability while maintaining flexibility. While our primary use case revolves around image classification, our project structure can easily adapt to a wide range of ML/DL developments, even transitioning from on-premises to cloud!
