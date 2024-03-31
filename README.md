@@ -52,7 +52,7 @@ Most of the ports can be customized in the .env file at the root of this reposit
 - MLflow: 5050
 - Prefect: 4200
 - PostgreSQL: 5432
-- PGagmin: 16543 (user: `pgadmin@gmail.com`, pw: `SuperSecurePwdHere`)
+- PGadmin: 16543 (user: `pgadmin@gmail.com`, pw: `SuperSecurePwdHere`)
 - Deep Learning service: 4242
 - Web UI interface for Deep Learning service: 4243
 - Nginx: 80
